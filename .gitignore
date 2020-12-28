@@ -11,6 +11,7 @@ bin
 *.ppu
 *.*~
 *.core
+dist
 hedgewars.pro.user
 config.inc
 cmake_install.cmake

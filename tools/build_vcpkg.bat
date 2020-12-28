@@ -7,7 +7,7 @@ setlocal
 set BUILD_TYPE=Release
 ::path where Hedgewars will be installed to
 ::default is %ProgramFiles%\hedgewars and requires running this script as administrator  
-set INSTALL_LOCATION=
+set INSTALL_LOCATION=C:\Users\Chris\git\hw\dist
 ::set if vcpkg is not on path
 set VCPKG_PATH=%VCPKG_ROOT%
 ::set if CMake is not on path
@@ -63,6 +63,7 @@ echo Configuration completed successfully
 
 echo Building...
 set ERRORLEVEL=
+set CL=/MP
 
 nmake
 
