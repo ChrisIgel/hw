@@ -262,7 +262,7 @@ About::About(QWidget * parent) :
     lbl1->setOpenExternalLinks(true);
     lbl1->setText(
         //: %1 contains Hedgewars' version number
-        "<div align=\"center\"><h1>"+QString(tr("Hedgewars %1")).arg(*cVersionString) + "</h1>"
+        "<div align=\"center\"><h1>"+QString(tr("Doomwars %1")).arg(*cVersionString) + "</h1>"
         //: “Revision” stands for a revision in Mercurial, a distributed version control system. %1 is the revision, %2 is the hexadecimal hash.
         "<h3>" + QString(tr("Revision %1 (%2)")).arg(*cRevisionString, *cHashString) + "</h3>"
         //: %1 is replaced by the URL of Hedgewars.
