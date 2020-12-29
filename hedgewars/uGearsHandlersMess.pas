@@ -1747,7 +1747,15 @@ begin
     if (Gear^.Timer mod 33) = 0 then
         begin
         HHGear^.State := HHGear^.State or gstNoDamage;
-        doMakeExplosion(x, y + 7, Gear^.Boom, Gear^.Hedgehog, EXPLDontDraw);
+        doMakeExplosion(x, y + Gear^.Boom + 1, Gear^.Boom, Gear^.Hedgehog, EXPLDontDraw and EXPLDoNotTouchAny);
+        HHGear^.State := HHGear^.State and (not gstNoDamage)
+        end;
+
+    if (Gear^.Timer mod 25) = 0 then
+        begin
+        HHGear^.State := HHGear^.State or gstNoDamage;
+        AddGear(x, y + Gear^.Boom + 1, gtFlame, 0, _1_9, _0, 0);
+        AddGear(x, y + Gear^.Boom + 1, gtFlame, 0, -_1_9, _0, 0);
         HHGear^.State := HHGear^.State and (not gstNoDamage)
         end;
 

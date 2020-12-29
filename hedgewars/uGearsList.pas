@@ -280,7 +280,7 @@ case Kind of
           gtShell: Gear^.Boom := 50;
             gtBee: Gear^.Boom := 100;
     gtShotgunShot: Gear^.Boom := 25;
-     gtPickHammer: Gear^.Boom := 6;
+     gtPickHammer: Gear^.Boom := 12;
 //           gtRope: Gear^.Boom := 2; could be funny to have rope attaching to hog deal small amount of dmg?
      gtDEagleShot: Gear^.Boom := 20;
        gtDynamite: Gear^.Boom := 75;
@@ -457,8 +457,8 @@ case Kind of
                 gear^.Radius:= 2
                 end;
   gtPickHammer: begin
-                gear^.Radius:= 10;
-                if gear^.Timer = 0 then gear^.Timer:= 4000
+                gear^.Radius:= 20;
+                if gear^.Timer = 0 then gear^.Timer:= 10000
                 end;
    gtHammerHit: begin
                 gear^.Radius:= 8;
