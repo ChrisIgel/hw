@@ -5725,7 +5725,7 @@ begin
             end;
 
 
-        inc(t,Gear^.Health div 313);
+        inc(t,Gear^.Health div 626);
 
         // if borders are on, stop outside land array
         if hasBorder and (((x and LAND_WIDTH_MASK) <> 0) or ((y and LAND_HEIGHT_MASK) <> 0)) then
@@ -5785,12 +5785,6 @@ begin
                             AddGear(rX, rY, gtFlame, 0, lX, -lY, 0);
                             end;
                         end
-                    // add some fire to the tunnel
-                    else if getRandom(6) = 0 then
-                        begin
-                        tmp:= GetRandom(2 * Gear^.Radius);
-                        AddGear(x - Gear^.Radius + tmp, y - GetRandom(Gear^.Radius + 1), gtFlame, gsttmpFlag, _0, _0, 0)
-                        end;
                     end;
 
                 Gear^.Damage := 0;
@@ -5802,27 +5796,6 @@ begin
             end;
 
         dec(Gear^.Health);
-
-        // decrease bullet size towards the end
-        if (Gear^.Radius > 4) then
-            begin
-            if (Gear^.Health <= (initHealth div 3)) then
-                dec(Gear^.Radius)
-            end
-        else if (Gear^.Radius > 3) then
-            begin
-            if (Gear^.Health <= (initHealth div 4)) then
-                dec(Gear^.Radius)
-            end
-        else if (Gear^.Radius > 2) then begin
-            if (Gear^.Health <= (initHealth div 5)) then
-                dec(Gear^.Radius)
-            end
-        else if (Gear^.Radius > 1) then
-            begin
-            if (Gear^.Health <= (initHealth div 6)) then
-                dec(Gear^.Radius)
-            end;
     until (Gear^.Health <= 0);
 
     DeleteGear(Gear);
