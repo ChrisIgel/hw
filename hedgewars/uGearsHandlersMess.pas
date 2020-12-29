@@ -1400,7 +1400,7 @@ begin
 end;
 
 procedure LineShoveHelp(Gear: PGear; oX, oY, tX, tY, dX, dY: hwFloat; count: LongWord);
-var dmg,power: LongInt;
+var dmg,power,width: LongInt;
 begin
     if hwSqr(tX - oX) + hwSqr(tY - oY) > _0_25 then
     begin
@@ -1416,7 +1416,11 @@ begin
     end;
     if Gear^.Damage > 0 then
     begin
-        DrawTunnel(oX, oY, dX, dY, count, 1);
+        if (Gear^.AmmoType = amDEagle) then
+            width:= Gear^.Radius
+        else
+            width:= 1;
+        DrawTunnel(oX, oY, dX, dY, count, width);
         dec(Gear^.Health, Gear^.Damage);
         Gear^.Damage := 0
     end;
