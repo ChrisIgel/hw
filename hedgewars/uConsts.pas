@@ -214,7 +214,7 @@ const
     cSentryHealth = 60;  // initial sentry health
     cShotgunRadius = 22; // radius of land a shotgun shot destroys
     cBlowTorchC    = 6;  // blow torch gear radius component (added to cHHRadius to get the full radius)
-    cakeDmg =   75;      // default cake damage
+    cakeDmg =   50;      // default cake damage
 
     // key stuff
     cKeyMaxIndex = 1600;

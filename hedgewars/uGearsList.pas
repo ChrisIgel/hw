@@ -659,7 +659,7 @@ case Kind of
                 gear^.Radius:= 20
                 end;
         gtCake: begin
-                gear^.Health:= 2048;
+                gear^.Health:= 8192;
                 gear^.Radius:= 7;
                 gear^.Z:= cOnHHZ;
                 gear^.RenderTimer:= false;

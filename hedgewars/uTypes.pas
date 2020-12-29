@@ -159,7 +159,7 @@ type
             sndWhatThe, sndSoLong, sndOhDear, sndGonnaGetYou, sndDrat, sndBugger, sndAmazing,
             sndBrilliant, sndExcellent, sndFire, sndWatchThis, sndRunAway, sndRevenge, sndCutItOut,
             sndLeaveMeAlone, sndOuch, sndHmm, sndKiss, sndFlyAway, sndPlaneWater, sndDynamiteFuse,
-            sndDynamiteImpact);
+            sndDynamiteImpact, sndCakeMusic);
 
     // Available ammo types to be used by hedgehogs
     TAmmoType  = (amNothing, amGrenade, amClusterBomb, amBazooka, amBee, amShotgun, amPickHammer, // 6

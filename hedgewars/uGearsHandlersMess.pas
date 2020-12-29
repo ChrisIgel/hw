@@ -3800,15 +3800,30 @@ begin
 end;
 
 ////////////////////////////////////////////////////////////////////////////////
+function frickinAngle(const Gear: PGear): LongInt;
+begin
+if hwSign(Gear^.dX) = 1 then
+    frickinAngle := -1 * hwSignf(Gear^.DirAngle) * (180 - abs(trunc(Gear^.DirAngle)))
+else
+    frickinAngle := trunc(Gear^.DirAngle);
+frickinAngle := frickinAngle + 180;
+end;
 
 procedure doStepCakeExpl(Gear: PGear);
 var gi: PGear;
+    i: LongInt;
+    angle, ballAngle: extended;
 begin
     AllInactive := false;
 
     inc(Gear^.Tag);
-    if Gear^.Tag < 2250 then
-        exit;
+    if Gear^.Tag < 1500 then exit;
+    angle := frickinAngle(Gear);
+    for i:= 1 to 200 do
+        begin
+        ballAngle := (angle - 40 + Random(80)) * pi / 180;
+        AddGear(hwRound(Gear^.X), hwRound(Gear^.Y), gtCluster, 0, Float2hwFloat(cos(ballAngle)) * (_0_5 + _0_3 * GetRandomf), Float2hwFloat(sin(ballAngle)) * (_0_5 + _0_3 * GetRandomf), 20);
+        end;
 
     InCinematicMode:= false;
     gi := GearsList;
@@ -3820,6 +3835,7 @@ begin
         end;
 
     doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
+    ResumeMusic();
     AfterAttack;
     DeleteGear(Gear)
 end;
@@ -3875,6 +3891,8 @@ begin
             gi := gi^.NextGear
             end;
 //////////////////////////////////////////////////////////////////////
+        StopSound(sndCakeMusic);
+        PlaySound(sndCake);
         Gear^.doStep := @doStepCakeExpl;
         if (partyEpicness > 6) and (abs(90 - abs(trunc(Gear^.DirAngle))) < 20) then
             begin
@@ -3891,7 +3909,6 @@ begin
                 end;
             InCinematicMode:= true;
             end;
-        PlaySound(sndCake)
         end
     else dec(Gear^.Pos)
 end;
@@ -4040,6 +4057,8 @@ begin
         if (Gear^.FlightTime <= 1) and (Gear^.Health > 2) then
             dec(Gear^.Health);
         Gear^.FlightTime := 0;
+        PauseMusic();
+        PlaySound(sndCakeMusic);
         Gear^.doStep := @doStepCakeWalk
         end
     else

@@ -334,7 +334,8 @@ var cInitVolume: LongInt;
             (FileName:              'Flyaway.ogg'; Path: ptVoices; AltPath: ptNone),// sndFlyAway
             (FileName:           'planewater.ogg'; Path: ptSounds; AltPath: ptNone),// sndPlaneWater
             (FileName:         'dynamitefuse.ogg'; Path: ptSounds; AltPath: ptNone),// sndDynamiteFuse
-            (FileName:       'dynamiteimpact.ogg'; Path: ptSounds; AltPath: ptNone) // sndDynamiteImpact
+            (FileName:       'dynamiteimpact.ogg'; Path: ptSounds; AltPath: ptNone),// sndDynamiteImpact
+            (FileName:            'cakemusic.ogg'; Path: ptSounds; AltPath: ptNone) // sndCakeMusic
             );
 
 
@@ -1070,4 +1071,3 @@ begin
 end;
 
 end.
-

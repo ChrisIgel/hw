@@ -58,6 +58,7 @@ type hwFloat = record
 // Returns an hwFloat that represents the value of integer parameter i
 function int2hwFloat (const i: LongInt) : hwFloat; inline;
 function hwFloat2Float (const i: hwFloat) : extended; inline;
+function Float2hwFloat (const i: extended) : hwFloat; inline;
 
 // The implemented operators
 
@@ -207,6 +208,13 @@ begin
 hwFloat2Float:= i.Frac / $100000000 + i.Round;
 if i.isNegative then
     hwFloat2Float:= -hwFloat2Float;
+end;
+
+function Float2hwFloat (const i: extended) : hwFloat inline;
+begin
+Float2hwFloat.isNegative:= i < 0;
+Float2hwFloat.Round:= trunc(abs(i));
+Float2hwFloat.Frac:= trunc(abs(frac(i))*$100000000);
 end;
 
 operator = (const z1, z2: hwFloat) z : boolean; inline;
