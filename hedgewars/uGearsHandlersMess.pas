@@ -2776,7 +2776,7 @@ begin
         // Intended for use with scripts.
         if (GameTicks and $F = 0) and (Gear^.FlightTime = 0) then
             begin
-            Gear^.Radius := 7;
+            Gear^.Radius := 9;
             tdX:= Gear^.dX;
             tdY:= Gear^.dY;
             Gear^.dX.QWordValue:= 120000000;
@@ -2869,7 +2869,7 @@ begin
         // Sticky flame damage
         if sticky and (GameTicks and $F = 0) then
             begin
-            Gear^.Radius := 7;
+            Gear^.Radius := 9;
             tdX:= Gear^.dX;
             tdY:= Gear^.dY;
             Gear^.dX.QWordValue:= 120000000;
@@ -2897,7 +2897,7 @@ begin
                 // Deal damage
                 if ((GameTicks and $1) = 0) then
                     begin
-                    Gear^.Radius := 7;
+                    Gear^.Radius := 9;
                     tdX:= Gear^.dX;
                     tdY:= Gear^.dY;
                     Gear^.dX.QWordValue:= 214748365;
@@ -2927,9 +2927,9 @@ begin
             else
                 begin
                 // Destroy land very slowly (low chance this gets called)
-                if ((GameTicks and $7FF) = 0) and ((GameFlags and gfSolidLand) = 0) then
+                if ((GameTicks and $7F) = 0) and ((GameFlags and gfSolidLand) = 0) then
                     begin
-                    doMakeExplosion(gX, gY, 4, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx);
+                    doMakeExplosion(gX, gY, Gear^.Boom * 2, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx);
 
                     for i:= Random(3) downto 0 do
                         AddVisualGear(gX - 3 + Random(6), gY - 2, vgtSmoke);
