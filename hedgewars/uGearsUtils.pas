@@ -408,7 +408,7 @@ begin
         end;
 
     i:= 0;
-    // One particle for every 5 HP. Max. 200 particles
+    // One particle for every 10 HP. Max. 100 particles
     if (vgTint <> 0) then
         while (i < healthBoost) and (i < 1000) do
             begin
@@ -419,7 +419,7 @@ begin
                     Tint:= vgTint;
                     State:= ord(sprHealth)
                     end;
-            inc(i, 5)
+            inc(i, 10)
             end;
 end;
 
