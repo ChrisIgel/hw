@@ -201,7 +201,7 @@ while Gear <> nil do
                                         AddCaption(FormatA(GetEventString(eidPoisoned), s), capcolDefault, capgrpMessage);
                                         uStats.HedgehogPoisoned(Gear, AttackingHog)
                                         end;
-                                    Gear^.Hedgehog^.Effects[hePoisoned] := 5;
+                                    Gear^.Hedgehog^.Effects[hePoisoned] := 100;
                                     end
                             end;
 

@@ -895,4 +895,3 @@ function SimpleMission(params)
 	end
 
 end
-

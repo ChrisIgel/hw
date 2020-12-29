@@ -4817,7 +4817,7 @@ begin
         HHGear^.Message := HHGear^.Message and (not gmAttack);
         if Gear^.FlightTime > 0 then
             begin
-            AddGear(hwRound(Gear^.X), hwRound(Gear^.Y) + 32, gtEgg, 0, Gear^.dX * _0_5, Gear^.dY, 0);
+            for i:= 0 to 10 do AddGear(hwRound(Gear^.X) + getRandom(30), hwRound(Gear^.Y) + 32 + (2 * i * getRandom(2)), gtEgg, 0, Gear^.dX * _0_5, Gear^.dY, 0);
             PlaySound(sndBirdyLay);
             dec(Gear^.FlightTime)
             end;
@@ -6058,8 +6058,8 @@ begin
     dec(Gear^.Timer);
     Gear^.X:= Gear^.X + Gear^.dX;
     Gear^.Y:= Gear^.Y + Gear^.dY;
-    Gear^.dX := Gear^.dX + cWindSpeed / 4;
-    Gear^.dY := Gear^.dY + cGravity / 100;
+    Gear^.dX := Gear^.dX + cWindSpeed / 2;
+    Gear^.dY := Gear^.dY + cGravity / 50;
     if (GameTicks and $FF) = 0 then
         doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLDontDraw or EXPLNoGfx or EXPLNoDamage or EXPLDoNotTouchAny or EXPLPoisoned);
     if Gear^.State and gstTmpFlag = 0 then

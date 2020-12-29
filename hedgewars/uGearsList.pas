@@ -305,7 +305,7 @@ case Kind of
 // sniper rifle is distance linked, this Boom is just an arbitrary scaling factor applied to timer-based-damage
 // because, eh, why not..
 gtSniperRifleShot: Gear^.Boom := 100000;
-            gtEgg: Gear^.Boom := 10;
+            gtEgg: Gear^.Boom := 20;
           gtPiano: Gear^.Boom := 80;
         gtGasBomb: Gear^.Boom := 20;
     gtSineGunShot: Gear^.Boom := 35;
@@ -314,7 +314,7 @@ gtSniperRifleShot: Gear^.Boom := 100000;
          gtHammer: if cDamageModifier > _1 then // scale it based on cDamageModifier?
                          Gear^.Boom := 2
                     else Gear^.Boom := 3;
-    gtPoisonCloud: Gear^.Boom := 20;
+    gtPoisonCloud: Gear^.Boom := 80;
           gtKnife: Gear^.Boom := 40000; // arbitrary scaling factor since impact-based
         gtCreeper: Gear^.Boom := 100;
   gtMinigunBullet: Gear^.Boom := 2;
@@ -732,7 +732,7 @@ case Kind of
        gtBirdy: begin
                 gear^.Radius:= 16; // todo: check
                 gear^.Health := 2000;
-                gear^.FlightTime := 2;
+                gear^.FlightTime := 30;
                 gear^.Z:= cCurrHHZ;
                 end;
          gtEgg: begin

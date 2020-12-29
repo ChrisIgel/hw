@@ -1665,7 +1665,7 @@ begin
                         Tint(Gear^.Tint and $FFFFFF00 or (Gear^.WDTimer - Gear^.Timer) div 8)
                     else
                         Tint(Gear^.Tint);
-                    DrawTextureRotatedF(SpritesData[sprSmokeWhite].texture, 3, 0, 0, x, y, 0, 1, 22, 22, (RealTicks shr 4 + Gear^.UID * 100) mod 360);
+                    DrawTextureRotatedF(SpritesData[sprSmokeWhite].texture, 12, 0, 0, x, y, 0, 1, 22, 22, (RealTicks shr 4 + Gear^.UID * 100) mod 360);
                     untint
                     end;
      gtResurrector: begin
