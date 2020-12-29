@@ -4148,8 +4148,8 @@ begin
                 begin
 
                 // randomize speed in both directions
-                dx:= 0.001 * (random(201));
-                dy:= 0.001 * (random(201));
+                dx:= 0.001 * (random(cSeductionDist - 99));
+                dy:= 0.001 * (random(cSeductionDist - 99));
 
                 // half of hearts go down
                 if random(2) = 0 then
