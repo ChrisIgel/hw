@@ -658,7 +658,7 @@ end;
 
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepHedgehogDead(Gear: PGear);
-const frametime = 200;
+const frametime = 20;
       timertime = frametime * 6;
 var grave:  PGear;
 begin
