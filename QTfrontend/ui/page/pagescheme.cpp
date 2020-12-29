@@ -322,8 +322,8 @@ QLayout * PageScheme::bodyLayoutDefinition()
     glBSLayout->addWidget(l,6,1,1,1);
     SB_RopeModifier = new QSpinBox(gbBasicSettings);
     SB_RopeModifier->setWhatsThis(wtRopeModifier);
-    SB_RopeModifier->setRange(25, 999);
-    SB_RopeModifier->setValue(100);
+    SB_RopeModifier->setRange(25, 2000);
+    SB_RopeModifier->setValue(1000);
     SB_RopeModifier->setSingleStep(25);
     glBSLayout->addWidget(SB_RopeModifier,6,2,1,1);
 

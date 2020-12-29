@@ -68,7 +68,7 @@ QList<QVariant> defaultScheme = QList<QVariant>()
                                 << QVariant(25)            // health case amt 38
                                 << QVariant(47)            // water rise amt 39
                                 << QVariant(5)             // health dec amt 40
-                                << QVariant(100)           // rope modfier   41
+                                << QVariant(1000)           // rope modfier   41
                                 << QVariant(100)           // get away time  42
                                 << QVariant(0)             // world edge     43
                                 << QVariant()              // scriptparam    44

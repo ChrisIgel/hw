@@ -168,10 +168,10 @@ begin
     HHGear^.dX.QWordValue:= HHGear^.dX.QWordValue shl 2;
     HHGear^.dY.QWordValue:= HHGear^.dY.QWordValue shl 2;
     if (Gear^.Message and gmLeft  <> 0) and (TestCollisionXwithGear(HHGear, -1) = 0) then
-        HHGear^.dX := HHGear^.dX - _0_0032;
+        HHGear^.dX := HHGear^.dX - _0_03;
 
     if (Gear^.Message and gmRight <> 0) and (TestCollisionXwithGear(HHGear,  1) = 0) then
-        HHGear^.dX := HHGear^.dX + _0_0032;
+        HHGear^.dX := HHGear^.dX + _0_03;
 
     // vector between hedgehog and rope attaching point
     ropeDx := HHGear^.X - Gear^.X;
@@ -215,12 +215,12 @@ begin
     if ((Gear^.Message and gmDown) <> 0) and (Gear^.Elasticity < Gear^.Friction) then
         if not ((TestCollisionXwithXYShift(HHGear, _2*hwSign(ropeDx), 0, hwSign(ropeDx), true) <> 0)
         or ((ropeDy.QWordValue <> 0) and (TestCollisionYwithXYShift(HHGear, 0, hwSign(ropeDy), hwSign(ropeDy)) <> 0))) then
-            Gear^.Elasticity := Gear^.Elasticity + _1_2;
+            Gear^.Elasticity := Gear^.Elasticity + _2_4;
 
     if ((Gear^.Message and gmUp) <> 0) and (Gear^.Elasticity > _30) then
         if not ((TestCollisionXwithXYShift(HHGear, -_2*hwSign(ropeDx), 0, -hwSign(ropeDx), true) <> 0)
         or ((ropeDy.QWordValue <> 0) and (TestCollisionYwithXYShift(HHGear, 0, -hwSign(ropeDy), -hwSign(ropeDy)) <> 0))) then
-            Gear^.Elasticity := Gear^.Elasticity - _1_2;
+            Gear^.Elasticity := Gear^.Elasticity - _2_4;
 
     HHGear^.X := Gear^.X + mdX * Gear^.Elasticity;
     HHGear^.Y := Gear^.Y + mdY * Gear^.Elasticity;
