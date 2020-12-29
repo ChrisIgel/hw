@@ -462,7 +462,6 @@ case Kind of
                 end;
    gtHammerHit: begin
                 gear^.Radius:= 8;
-                if gear^.Timer = 0 then gear^.Timer:= 125
                 end;
         gtRope: begin
                 gear^.Radius:= 3;

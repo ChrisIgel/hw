@@ -6095,7 +6095,7 @@ while i > 0 do
                 // base damage on remaining health
                 dmg:= (tmp^.Health - tmp^.Damage);
                 // always rounding down
-                dmg:= dmg div Gear^.Boom;
+                dmg:= dmg div Gear^.Boom + 20;
 
                 if dmg > 0 then
                     ApplyDamage(tmp, CurrentHedgehog, dmg, dsHammer);
@@ -6118,54 +6118,21 @@ end;
 
 procedure doStepHammerHitWork(Gear: PGear);
 var
-    i, j, ei: LongInt;
+    i, j, r: LongInt;
     HitGear: PGear;
 begin
     AllInactive := false;
     HitGear := Gear^.LinkedGear;
-    dec(Gear^.Timer);
-    if (HitGear = nil) or (Gear^.Timer = 0) or ((Gear^.Message and gmDestroy) <> 0) then
+
+    for i := 1 to 4 do doMakeExplosion(hwRound(Gear^.X) - 2 + Random(4), hwRound(Gear^.Y) - 5 + 15*i, 15, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
+    for i := 1 to 10 do
         begin
-        DeleteGear(Gear);
-        exit
+        for j := -i to i do doMakeExplosion(hwRound(Gear^.X) - 2 + Random(4) + (j * 10), hwRound(Gear^.Y) - 2 + Random(4) + 40 + (i * 10), 10, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
         end;
 
-    if (Gear^.Timer mod 5) = 0 then
-        begin
-        AddVisualGear(hwRound(Gear^.X) - 5 + Random(10), hwRound(Gear^.Y) + 12, vgtDust);
-
-        i := hwRound(Gear^.X) - HitGear^.Radius + 2;
-        ei := hwRound(Gear^.X) + HitGear^.Radius - 2;
-        for j := 1 to 4 do doMakeExplosion(i - GetRandom(5), hwRound(Gear^.Y) + 6*j, 3, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
-        for j := 1 to 4 do doMakeExplosion(ei + LongInt(GetRandom(5)), hwRound(Gear^.Y) + 6*j, 3, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
-        while i <= ei do
-            begin
-            for j := 1 to 11 do doMakeExplosion(i, hwRound(Gear^.Y) + 3*j, 3, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
-            inc(i, 1)
-            end;
-
-        if CheckLandValue(hwRound(Gear^.X + Gear^.dX + SignAs(_6,Gear^.dX)), hwRound(Gear^.Y + _1_9)
-           , lfIndestructible) then
-            begin
-            Gear^.Y := Gear^.Y + _1_9
-            end;
-        end;
-    if TestCollisionYwithGear(Gear, 1) <> 0 then
-        begin
-        Gear^.dY := _0;
-        SetLittle(HitGear^.dX);
-        HitGear^.dY := _0;
-        end
-    else
-        begin
-        if CheckCoordInWater(hwRound(Gear^.X), hwRound(Gear^.Y)) then
-            Gear^.Timer := 1
-        end;
-
-    HitGear^.X := Gear^.X;
-    HitGear^.Y := Gear^.Y;
     SetLittle(HitGear^.dY);
     HitGear^.Active:= true;
+    DeleteGear(Gear);
 end;
 
 procedure doStepHammerHit(Gear: PGear);
@@ -6187,7 +6154,6 @@ begin
         end;
 
     DrawHLinesExplosions(@ar, 3, hwRound(Gear^.Y) - cHHRadius * 2, 2, Pred(i));
-    Gear^.dY := HHGear^.dY;
     DeleteCI(HHGear);
 
     doStepHammerHitWork(Gear);

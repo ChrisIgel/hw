@@ -77,4 +77,3 @@ nmake install
 cd %CURRDIR%
 
 endlocal
-pause
