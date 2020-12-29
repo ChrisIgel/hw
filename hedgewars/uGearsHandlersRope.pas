@@ -427,9 +427,9 @@ var
     HHGear: PGear;
     tx, ty, tt: hwFloat;
 begin
-    Gear^.X := Gear^.X - Gear^.dX;
-    Gear^.Y := Gear^.Y - Gear^.dY;
-    Gear^.Elasticity := Gear^.Elasticity + _1;
+    Gear^.X := Gear^.X - Gear^.dX * 5;
+    Gear^.Y := Gear^.Y - Gear^.dY * 5;
+    Gear^.Elasticity := Gear^.Elasticity + _5;
 
     HHGear := Gear^.Hedgehog^.Gear;
     if HHGear = nil then
