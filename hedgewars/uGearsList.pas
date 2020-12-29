@@ -293,7 +293,7 @@ case Kind of
       gtBlowTorch: Gear^.Boom := 2;
          gtMortar: Gear^.Boom := 20;
            gtWhip: Gear^.Boom := 30;
-       gtKamikaze: Gear^.Boom := 30; // both shove and explosion
+       gtKamikaze: Gear^.Boom := 0; // explosion radius based on hedgehog health
            gtCake: Gear^.Boom := cakeDmg; // why is cake damage a global constant
      gtWatermelon: Gear^.Boom := 75;
     gtHellishBomb: Gear^.Boom := 90;

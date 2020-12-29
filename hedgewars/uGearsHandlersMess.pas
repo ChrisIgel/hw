@@ -3722,7 +3722,7 @@ begin
 
     if Gear^.Health < Gear^.Damage then
         begin
-        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
+        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), HHGear^.Health div 20, Gear^.Hedgehog, EXPLAutoSound);
         if hasWishes then
             for i:= 0 to 31 do
                 begin
