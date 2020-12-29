@@ -287,7 +287,7 @@ case Kind of
     gtClusterBomb: Gear^.Boom := 20;
      gtMelonPiece,
         gtCluster: Gear^.Boom := Timer;
-         gtShover: Gear^.Boom := 30;
+         gtShover: Gear^.Boom := 100;
       gtFirePunch: Gear^.Boom := 30;
         gtAirBomb: Gear^.Boom := 30;
       gtBlowTorch: Gear^.Boom := 2;

@@ -2711,7 +2711,7 @@ begin
         HHGear^.State := HHGear^.State or gstNoDamage;
         DeleteCI(HHGear);
 
-        AmmoShoveCache(Gear, Gear^.Boom, 115);
+        AmmoShoveCache(Gear, Gear^.Boom, 345);
 
         HHGear^.State := (HHGear^.State and (not gstNoDamage)) or gstMoving;
         end
