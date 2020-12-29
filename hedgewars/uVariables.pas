@@ -2754,9 +2754,9 @@ begin
     cZoomDelta      := 0.20;
     cZoomDeltaSmall := 0.10;
 {$ELSE}
-    cMaxZoomLevel   := 1.0;
-    cMinZoomLevel   := 3.0;
-    cZoomDelta      := 0.25;
+    cMaxZoomLevel   := 0.5;
+    cMinZoomLevel   := 4.0;
+    cZoomDelta      := 0.5;
     cZoomDeltaSmall := 0.125;
 {$ENDIF}
 
