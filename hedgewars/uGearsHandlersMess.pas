@@ -1417,7 +1417,7 @@ begin
     end;
     if Gear^.Damage > 0 then
     begin
-        if (Gear^.AmmoType = amDEagle) then
+        if (Gear^.AmmoType = amDEagle) or (Gear^.AmmoType = amSniperRifle) then
             width:= Gear^.Radius
         else
             width:= 1;
