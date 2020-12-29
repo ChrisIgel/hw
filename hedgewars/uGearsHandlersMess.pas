@@ -6147,13 +6147,7 @@ begin
     AllInactive := false;
     hh := Gear^.Hedgehog;
 
-    if ((Gear^.Message and gmUp) <> 0) then
-        begin
-        if (GameTicks and $F) <> 0 then
-        exit;
-        end
-    else if (GameTicks and $1FF) <> 0 then
-        exit;
+    if (GameTicks and $F) <> 0 then exit;
 
     if Gear^.Power < 45 then
         begin
@@ -6162,7 +6156,7 @@ begin
             hh^.Gear^.Y := hh^.Gear^.Y - _1;
         end;
 
-    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, Gear^.Radius);
+    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, Gear^.Radius + CurrentHedgehog^.InitialHealth div 50);
 
     if graves.size = 0 then
         begin
@@ -6175,12 +6169,12 @@ begin
     if ((Gear^.Message and gmAttack) <> 0) and (hh^.Gear^.Health > 0) and (TurnTimeLeft > 0) then
         begin
         if LongInt(graves.size) <= Gear^.Tag then Gear^.Tag:= 0;
-        dec(hh^.Gear^.Health);
-        if (hh^.Gear^.Health = 0) and (hh^.Gear^.Damage = 0) then
+        dec(hh^.Gear^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
+        if (hh^.Gear^.Health <= 0) and (hh^.Gear^.Damage = 0) then
             hh^.Gear^.Damage:= 1;
         RenderHealth(hh^);
         RecountTeamHealth(hh^.Team);
-        inc(graves.ar^[Gear^.Tag]^.Health);
+        inc(graves.ar^[Gear^.Tag]^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
         inc(Gear^.Tag)
         end
     else
@@ -6228,7 +6222,7 @@ var
     i: LongInt;
 begin
     AllInactive := false;
-    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, Gear^.Radius);
+    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, Gear^.Radius + CurrentHedgehog^.InitialHealth div 50);
 
     if graves.size > 0 then
         begin
@@ -6242,12 +6236,12 @@ begin
         if ((Gear^.Message and gmAttack) <> 0) and (hh^.Gear^.Health > 0) and (TurnTimeLeft > 0) then
             begin
             if LongInt(graves.size) <= Gear^.Tag then Gear^.Tag:= 0;
-            dec(hh^.Gear^.Health);
-            if (hh^.Gear^.Health = 0) and (hh^.Gear^.Damage = 0) then
+            dec(hh^.Gear^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
+            if (hh^.Gear^.Health <= 0) and (hh^.Gear^.Damage = 0) then
                 hh^.Gear^.Damage:= 1;
             RenderHealth(hh^);
             RecountTeamHealth(hh^.Team);
-            inc(graves.ar^[Gear^.Tag]^.Health);
+            inc(graves.ar^[Gear^.Tag]^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
             inc(Gear^.Tag)
             end
         end
