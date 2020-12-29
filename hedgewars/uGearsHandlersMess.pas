@@ -6099,7 +6099,7 @@ while i > 0 do
                 // base damage on remaining health
                 dmg:= (tmp^.Health - tmp^.Damage);
                 // always rounding down
-                dmg:= dmg div Gear^.Boom + 20;
+                dmg:= dmg div Gear^.Boom + 50;
 
                 if dmg > 0 then
                     ApplyDamage(tmp, CurrentHedgehog, dmg, dsHammer);
