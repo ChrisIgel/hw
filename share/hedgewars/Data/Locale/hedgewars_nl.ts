@@ -1840,7 +1840,7 @@ Last engine message:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
+        <source>Gain 150% of the damage you do back in health</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

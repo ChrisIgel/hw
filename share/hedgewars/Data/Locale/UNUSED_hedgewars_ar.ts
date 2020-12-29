@@ -1885,8 +1885,8 @@ Last engine message:
         <translation>كل اللاعبين لهم حقل قوى</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>احصل على 80% من التدمير في صحتك</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>احصل على 150% من التدمير في صحتك</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

@@ -2129,8 +2129,8 @@ Ostatnia wiadomość silnika:
         <translation>Wszystkie jeże posiadają osobiste pole siłowe</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Odzyskaj 80% życia z zadanych obrażeń</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Odzyskaj 150% życia z zadanych obrażeń</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

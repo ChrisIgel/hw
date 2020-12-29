@@ -1982,7 +1982,7 @@ Last engine message:
         <translation>Tüm kirpilerin kişisel güç kalkanı olur</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
+        <source>Gain 150% of the damage you do back in health</source>
         <translation>Verdiğin hasarın %80&apos;ini sağlık olarak kazan</translation>
     </message>
     <message>

@@ -1973,8 +1973,8 @@ Ultimo messaggio della macchina:
 <context>
     <name>PageScheme</name>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Guadagna in salute l&apos;80% del danno che fai</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Guadagna in salute l&apos;150% del danno che fai</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

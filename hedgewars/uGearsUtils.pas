@@ -299,7 +299,7 @@ begin
             begin
             if cVampiric then
                 begin
-                vampDmg:= hwRound(int2hwFloat(tmpDmg)*_0_8);
+                vampDmg:= hwRound(int2hwFloat(tmpDmg)*_1_5);
                 if vampDmg >= 1 then
                     begin
                     // was considering pulsing on attack, Tiy thinks it should be permanent while in play

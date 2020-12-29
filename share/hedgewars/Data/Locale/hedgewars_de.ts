@@ -2129,8 +2129,8 @@ Die letzte Meldung der Engine lautet:
         <translation>Löschen</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>80% des ausgeteilten Schadens werden dir als Gesundheitspunkte gutgeschrieben</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>150% des ausgeteilten Schadens werden dir als Gesundheitspunkte gutgeschrieben</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

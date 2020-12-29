@@ -1967,8 +1967,8 @@ Last engine message:
 <context>
     <name>PageScheme</name>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>80% урона, нанесённого врагу, вернётся в виде здоровья вашему ёжику</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>150% урона, нанесённого врагу, вернётся в виде здоровья вашему ёжику</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

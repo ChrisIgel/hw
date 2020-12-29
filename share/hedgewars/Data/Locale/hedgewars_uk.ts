@@ -2047,8 +2047,8 @@ Last engine message:
         <translation>Всі їжаки мають особисте силове поле</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Отримання 80% здоров&apos;я, яке втратив противник</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Отримання 150% здоров&apos;я, яке втратив противник</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

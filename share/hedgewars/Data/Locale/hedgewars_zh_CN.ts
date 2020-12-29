@@ -2092,8 +2092,8 @@
         <translation>风力会影响几乎所有东西。</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>获得血量为造成伤害的 80%</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>获得血量为造成伤害的 150%</translation>
     </message>
     <message>
         <source>Order of play is random instead of in room order.</source>

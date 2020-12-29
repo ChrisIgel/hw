@@ -2037,8 +2037,8 @@ Last engine message:
         <translation>All hogs have a personal forcefield</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Gain 80% of the damage you do back in health</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Gain 150% of the damage you do back in health</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

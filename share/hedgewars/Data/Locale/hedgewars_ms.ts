@@ -2246,7 +2246,7 @@ Last engine message:
     </message>
     <message>
         <location filename="../../../../QTfrontend/ui/page/pagescheme.cpp" line="116"/>
-        <source>Gain 80% of the damage you do back in health</source>
+        <source>Gain 150% of the damage you do back in health</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

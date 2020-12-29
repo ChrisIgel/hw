@@ -2047,8 +2047,8 @@ An teachdaireachd mu dheireadh aig an einnsein:
         <translation>Bidh raon forsa pearsanta aig gach gràineag</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Buannaich slàinte le 80% dhen dochann a nì thu</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Buannaich slàinte le 150% dhen dochann a nì thu</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

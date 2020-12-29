@@ -1974,7 +1974,7 @@ Last engine message:
 <context>
     <name>PageScheme</name>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
+        <source>Gain 150% of the damage you do back in health</source>
         <translation>K vášmu zdraviu sa priráta 80 % škody, ktorú spôsobíte</translation>
     </message>
     <message>

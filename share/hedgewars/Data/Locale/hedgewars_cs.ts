@@ -1962,8 +1962,8 @@ Last engine message:
         <translation>Všichni ježci mají osobní silové pole</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Získej zpět 80% z poškození, které učiníš</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Získej zpět 150% z poškození, které učiníš</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

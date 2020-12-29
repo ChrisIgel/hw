@@ -1988,8 +1988,8 @@ Last engine message:
         <translation>Todos os ouriços têm um campo de forças pessoal</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Converte 80% do dano realizado em vida</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Converte 150% do dano realizado em vida</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

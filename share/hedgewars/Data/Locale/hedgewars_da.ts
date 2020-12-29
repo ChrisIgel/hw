@@ -1941,8 +1941,8 @@ Last engine message:
         <translation>Alle pindsvin har deres eget personlige kraftfelt</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Få 80% af den skade du giver tilbage som liv</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Få 150% af den skade du giver tilbage som liv</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

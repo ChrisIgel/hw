@@ -60,7 +60,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Gain 80% of the damage you do back in health</string>
+		<string>Gain 150% of the damage you do back in health</string>
 		<key>image</key>
 		<string>Vampiric</string>
 		<key>title</key>

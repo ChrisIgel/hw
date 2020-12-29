@@ -1982,8 +1982,8 @@ Last engine message:
         <translation>刪除</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>傷害的80%成為自身生命</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>傷害的150%成為自身生命</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

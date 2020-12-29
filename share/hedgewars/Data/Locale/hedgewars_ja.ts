@@ -1882,8 +1882,8 @@ Last engine message:
         <translation>針鼠はみんな個人の力場を持っています</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>与えたダメージの80%をHPとして修得します</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>与えたダメージの150%をHPとして修得します</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

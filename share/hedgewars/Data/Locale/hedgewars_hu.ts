@@ -1922,8 +1922,8 @@ A motor utolsó üzenete:
         <translation>Minden süninek saját erőtere van</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Az általad okozott sebzés 80% -át visszagyógyulod</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Az általad okozott sebzés 150% -át visszagyógyulod</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

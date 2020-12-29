@@ -113,7 +113,7 @@ QLayout * PageScheme::bodyLayoutDefinition()
     glGMLayout->addWidget(TBW_artillery,1,4,1,1);
 
     TBW_vampiric = new ToggleButtonWidget(gbGameModes, ":/res/btnVampiric@2x.png");
-    TBW_vampiric->setWhatsThis(tr("Gain 80% of the damage you do back in health"));
+    TBW_vampiric->setWhatsThis(tr("Gain 150% of the damage you do back in health"));
     glGMLayout->addWidget(TBW_vampiric,2,0,1,1);
 
     TBW_karma = new ToggleButtonWidget(gbGameModes, ":/res/btnKarma@2x.png");

@@ -1988,8 +1988,8 @@ Last engine message:
         <translation>Excluir</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Ganhe em saúde 80% dos danos que causar</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Ganhe em saúde 150% dos danos que causar</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

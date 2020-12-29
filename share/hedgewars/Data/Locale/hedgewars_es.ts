@@ -1921,8 +1921,8 @@ Last engine message:
         <translation>Borrar</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Recuperar el 80% del daño infligido como vida</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Recuperar el 150% del daño infligido como vida</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

@@ -1927,7 +1927,7 @@ Last engine message:
         <translation type="unfinished">Όλοιοι σκατζόχοιροι έχουν ατομικό πεδίο δυνάμεων</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
+        <source>Gain 150% of the damage you do back in health</source>
         <translation type="unfinished">Κερδίστε το 80% της ζημιάς που προκαλείτε σε υγεία</translation>
     </message>
     <message>

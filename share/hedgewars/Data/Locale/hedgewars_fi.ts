@@ -1962,8 +1962,8 @@ Last engine message:
         <translation>Kaikilla siileillä on oma suojakenttänsä</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Vampirismi: Saat 80% aiheuttamastasi vahingosta takaisin omaan terveyteesi</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Vampirismi: Saat 150% aiheuttamastasi vahingosta takaisin omaan terveyteesi</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

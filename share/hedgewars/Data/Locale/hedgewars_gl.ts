@@ -1895,8 +1895,8 @@ Last engine message:
         <translation>Todos os ourizos teñen un escudo protector</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Gañar o 80% do daño inflixido en vida</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Gañar o 150% do daño inflixido en vida</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

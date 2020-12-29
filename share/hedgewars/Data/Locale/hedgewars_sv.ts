@@ -1921,8 +1921,8 @@ Last engine message:
         <translation>Ta bort</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>Få 80% av skadan du gör tillbaka i liv</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>Få 150% av skadan du gör tillbaka i liv</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>

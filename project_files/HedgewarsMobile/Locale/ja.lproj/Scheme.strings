@@ -41,7 +41,7 @@
 "Reset Health" = "体力をリセット";
 
 /* game mod description */
-"Gain 80% of the damage you do back in health" = "ダメージの80% を体力としてもらう";
+"Gain 150% of the damage you do back in health" = "ダメージの80% を体力としてもらう";
 
 /* game mod title */
 "Vampirism Mode" = "吸血モード";

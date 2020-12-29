@@ -2015,8 +2015,8 @@ Last engine message:
         <translation>Supprimer</translation>
     </message>
     <message>
-        <source>Gain 80% of the damage you do back in health</source>
-        <translation>80% des dommages que vous infligez sont convertis en santé</translation>
+        <source>Gain 150% of the damage you do back in health</source>
+        <translation>150% des dommages que vous infligez sont convertis en santé</translation>
     </message>
     <message>
         <source>Share your opponents pain, share their damage</source>
