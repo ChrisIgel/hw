@@ -1021,7 +1021,7 @@ begin
     if not Gear^.dY.isNegative then
         if TestCollisionY(Gear, 1) <> 0 then
             begin
-            Gear^.dY := - Gear^.dY * Gear^.Elasticity;
+            Gear^.dY := _0;
             if Gear^.dY > - _1div1024 then
                 begin
                 Gear^.Active := false;
