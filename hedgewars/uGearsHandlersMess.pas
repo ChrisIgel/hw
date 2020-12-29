@@ -3691,8 +3691,7 @@ begin
         inc(Gear^.Damage, 2);
 
         dec(i)
-    until (i = 0)
-    or (Gear^.Damage > Gear^.Health);
+    until (i = 0);
 
     inc(upd);
     if upd > 3 then
@@ -3721,9 +3720,9 @@ begin
     if (Gear^.Timer mod 100) = 0 then
         RefillProximityCache(Gear, 300);
 
-    if Gear^.Health < Gear^.Damage then
+    if (Gear^.Message and gmAttack) <> 0 then
         begin
-        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), HHGear^.Health div 20, Gear^.Hedgehog, EXPLAutoSound);
+        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Min(50 + (HHGear^.Health div 30), 300), Gear^.Hedgehog, EXPLAutoSound);
         if hasWishes then
             for i:= 0 to 31 do
                 begin
