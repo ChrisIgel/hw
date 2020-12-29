@@ -296,7 +296,7 @@ case Kind of
        gtKamikaze: Gear^.Boom := 0; // explosion radius based on hedgehog health
            gtCake: Gear^.Boom := cakeDmg; // why is cake damage a global constant
      gtWatermelon: Gear^.Boom := 75;
-    gtHellishBomb: Gear^.Boom := 90;
+    gtHellishBomb: Gear^.Boom := 150;
           gtDrill: if Gear^.State and gsttmpFlag = 0 then
                         Gear^.Boom := 50
                    else Gear^.Boom := 30;

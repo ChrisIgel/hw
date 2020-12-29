@@ -644,6 +644,7 @@ begin
                 begin
                 x := hwRound(Gear^.X);
                 y := hwRound(Gear^.Y);
+                doMakeExplosion(x, y, Gear^.Boom, Gear^.Hedgehog, EXPLDoNotTouchAny);
                 doMakeExplosion(x, y, Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
 
                 for i:= 0 to 127 do
