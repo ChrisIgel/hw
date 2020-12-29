@@ -632,10 +632,10 @@ begin
                 y := hwRound(Gear^.Y);
                 gdX:= Gear^.dX;
                 doMakeExplosion(x, y, Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
-                for i:= 0 to 5 do
+                for i:= 0 to 15 do
                     begin
-                    dX := rndSign(GetRandomf * _0_1) + gdX / 5;
-                    dY := (GetRandomf - _1_5) * _0_3;
+                    dX := rndSign(GetRandomf * _0_4) + gdX / 5;
+                    dY := _0_5 + (GetRandomf * _0_4);
                     FollowGear:= AddGear(x, y, gtMelonPiece, 0, dX, dY, 75);
                     FollowGear^.DirAngle := i * 60
                     end
