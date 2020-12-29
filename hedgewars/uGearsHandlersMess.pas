@@ -4378,15 +4378,15 @@ begin
     HedgehogChAngle(HHGear);
     gX := hwRound(Gear^.X) + GetLaunchX(amBallgun, hwSign(HHGear^.dX), HHGear^.Angle);
     gY := hwRound(Gear^.Y) + GetLaunchY(amBallgun, HHGear^.Angle);
-    if (Gear^.Timer mod 25) = 0 then
+    if (Gear^.Timer mod 40) = 0 then
         begin
-        rx := rndSign(getRandomf * _0_2);
-        ry := rndSign(getRandomf * _0_2);
+        rx := rndSign(getRandomf * _0_15);
+        ry := rndSign(getRandomf * _0_15);
 
         ball:= AddGear(gx, gy, gtBall, 0, SignAs(AngleSin(HHGear^.Angle) * _1, HHGear^.dX) + rx, AngleCos(HHGear^.Angle) * ( - _1) + ry, 0);
         ball^.CollisionMask:= lfNotCurHogCrate;
 
-        PlaySound(sndGun);
+        if (Gear^.Timer mod 100) = 0 then PlaySound(sndGun);
         end;
 
     if (Gear^.Timer = 0) or ((HHGear^.State and gstHHDriven) = 0) then
