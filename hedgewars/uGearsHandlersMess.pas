@@ -1086,11 +1086,11 @@ begin
         begin
         if (Gear^.Timer and $F) = 0 then
             begin
-            if (Gear^.Timer and $3F) = 0 then
-                AddVisualGear(gX, gY, vgtBeeTrace);
+            if (GameTicks mod 20) = 0 then
+                AddGear(gX, gY, gtCluster, 0, Gear^.dX, Gear^.dY, 20);
 
-            Gear^.dX := Gear^.dX + _0_000064 * (Gear^.Target.X - gX);
-            Gear^.dY := Gear^.dY + _0_000064 * (Gear^.Target.Y - gY);
+            Gear^.dX := Gear^.dX + _0_0002 * (Gear^.Target.X - gX);
+            Gear^.dY := Gear^.dY + _0_0002 * (Gear^.Target.Y - gY);
             // make sure new speed isn't higher than original one (which we stored in Friction variable)
             t := Gear^.Friction / Distance(Gear^.dX, Gear^.dY);
             Gear^.dX := Gear^.dX * t;
@@ -1103,8 +1103,7 @@ begin
         end;
 
 
-    CheckCollision(Gear);
-    if ((Gear^.State and gstCollision) <> 0) then
+    if ((gX = Gear^.Target.X) and (gY = Gear^.Target.Y) or (Gear^.Timer = 0)) then
         begin
         StopSoundChan(Gear^.SoundChannel);
         doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
@@ -1153,7 +1152,6 @@ begin
         HomingWrap(Gear);
     Gear^.dY := Gear^.dY + cGravity;
     CheckGearDrowning(Gear);
-    CheckCollision(Gear);
     if (Gear^.State and gstCollision) <> 0 then
         begin
         doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
@@ -1168,7 +1166,7 @@ begin
         AttackBar:= 0;
 
         Gear^.SoundChannel := LoopSound(sndBee);
-        Gear^.Timer := 5000;
+        Gear^.Timer := 20000;
         // save initial speed in otherwise unused Friction variable
         Gear^.Friction := Distance(Gear^.dX, Gear^.dY);
         Gear^.doStep := @doStepBeeWork
