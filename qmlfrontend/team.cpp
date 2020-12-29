@@ -9,7 +9,7 @@ Hedgehog::Hedgehog()
 Team::Team()
     : name(QObject::tr("unnamed", "default team name").toUtf8()),
       color("12345678"),
-      m_hedgehogsNumber(4) {
+      m_hedgehogsNumber(8) {
   m_hedgehogs.resize(8);
 }
 

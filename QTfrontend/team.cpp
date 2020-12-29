@@ -33,7 +33,7 @@
 HWTeam::HWTeam(const QString & teamname) :
     QObject(0)
     , m_difficulty(0)
-    , m_numHedgehogs(4)
+    , m_numHedgehogs(8)
     , m_isNetTeam(false)
     , m_isMissionTeam(false)
 {
@@ -60,7 +60,7 @@ HWTeam::HWTeam(const QString & teamname) :
 
 HWTeam::HWTeam(const QStringList& strLst) :
     QObject(0)
-    , m_numHedgehogs(4)
+    , m_numHedgehogs(8)
     , m_isNetTeam(true)
     , m_isMissionTeam(false)
 {
@@ -88,7 +88,7 @@ HWTeam::HWTeam(const QStringList& strLst) :
 HWTeam::HWTeam() :
     QObject(0)
     , m_difficulty(0)
-    , m_numHedgehogs(4)
+    , m_numHedgehogs(8)
     , m_isNetTeam(false)
     , m_isMissionTeam(false)
 {
@@ -444,4 +444,3 @@ void HWTeam::setNumHedgehogs(unsigned char num)
 {
     m_numHedgehogs = num;
 }
-

@@ -226,7 +226,7 @@ QLayout * PageScheme::bodyLayoutDefinition()
     SB_TurnTime = new QSpinBox(gbBasicSettings);
     SB_TurnTime->setWhatsThis(wtTurnTime);
     SB_TurnTime->setRange(1, 9999);
-    SB_TurnTime->setValue(45);
+    SB_TurnTime->setValue(90);
     SB_TurnTime->setSingleStep(15);
     glBSLayout->addWidget(SB_TurnTime,1,2,1,1);
 

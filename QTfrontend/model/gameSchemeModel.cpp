@@ -54,9 +54,9 @@ QList<QVariant> defaultScheme = QList<QVariant>()
                                 << QVariant(false)         // tag team       24
                                 << QVariant(false)         // bottom border  25
                                 << QVariant(100)           // damage modfier 26
-                                << QVariant(45)            // turn time      27
-                                << QVariant(100)           // init health    28
-                                << QVariant(15)            // sudden death   29
+                                << QVariant(90)            // turn time      27
+                                << QVariant(1000)          // init health    28
+                                << QVariant(30)            // sudden death   29
                                 << QVariant(5)             // case prob      30
                                 << QVariant(3)             // mines time     31
                                 << QVariant(4)             // mines number   32
