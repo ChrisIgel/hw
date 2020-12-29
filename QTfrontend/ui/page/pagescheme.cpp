@@ -208,7 +208,7 @@ QLayout * PageScheme::bodyLayoutDefinition()
     glBSLayout->addWidget(l,0,1,1,1);
     SB_DamageModifier = new QSpinBox(gbBasicSettings);
     SB_DamageModifier->setWhatsThis(wtDamageModifier);
-    SB_DamageModifier->setRange(10, 300);
+    SB_DamageModifier->setRange(10, 500);
     SB_DamageModifier->setValue(100);
     SB_DamageModifier->setSingleStep(25);
     glBSLayout->addWidget(SB_DamageModifier,0,2,1,1);
@@ -243,7 +243,7 @@ QLayout * PageScheme::bodyLayoutDefinition()
     SB_InitHealth = new QSpinBox(gbBasicSettings);
     SB_InitHealth->setWhatsThis(wtInitHealth);
     SB_InitHealth->setRange(1, 1000);
-    SB_InitHealth->setValue(100);
+    SB_InitHealth->setValue(1000);
     SB_InitHealth->setSingleStep(25);
     glBSLayout->addWidget(SB_InitHealth,2,2,1,1);
 
@@ -758,4 +758,3 @@ void PageScheme::checkDupe()
         dupeMsg.exec();
     }
 }
-
