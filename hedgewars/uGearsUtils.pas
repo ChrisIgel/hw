@@ -54,6 +54,7 @@ procedure AmmoShove(Ammo: PGear; Damage, Power: LongInt);
 procedure AmmoShoveCache(Ammo: PGear; Damage, Power: LongInt);
 procedure AmmoShoveLine(Ammo: PGear; Damage, Power: LongInt; oX, oY, tX, tY: hwFloat);
 function  GearsNear(X, Y: hwFloat; Kind: TGearType; r: LongInt): PGearArrayS;
+function  GearsNear(X, Y: hwFloat; r: LongInt): PGearArrayS;
 function  SpawnBoxOfSmth: PGear;
 procedure PlayBoxSpawnTaunt(Gear: PGear);
 procedure ShotgunShot(Gear: PGear);
@@ -1625,6 +1626,38 @@ begin
             yc:= (Y - t^.Y)*(Y - t^.Y);
             if (t^.Kind = Kind)
                 and ((xc + yc < int2hwFloat(r))
+                or ((WorldEdge = weWrap) and
+                ((xc_left + yc < int2hwFloat(r)) or
+                (xc_right + yc < int2hwFloat(r))))) then
+                begin
+                inc(s);
+                SetLength(GearsNearArray, s);
+                GearsNearArray[s - 1] := t;
+                end;
+            t := t^.NextGear;
+        end;
+
+    GearsNear.size:= s;
+    GearsNear.ar:= @GearsNearArray
+end;
+
+function GearsNear(X, Y: hwFloat; r: LongInt): PGearArrayS;
+var
+    t: PGear;
+    s: Longword;
+    xc, xc_left, xc_right, yc: hwFloat;
+begin
+    r:= r*r;
+    s:= 0;
+    SetLength(GearsNearArray, s);
+    t := GearsList;
+    while t <> nil do
+        begin
+            xc:= (X - t^.X)*(X - t^.X);
+            xc_left:= ((X - int2hwFloat(RightX-LeftX)) - t^.X)*((X - int2hwFloat(RightX-LeftX)) - t^.X);
+            xc_right := ((X + int2hwFloat(RightX-LeftX)) - t^.X)*((X + int2hwFloat(RightX-LeftX)) - t^.X);
+            yc:= (Y - t^.Y)*(Y - t^.Y);
+            if ((xc + yc < int2hwFloat(r))
                 or ((WorldEdge = weWrap) and
                 ((xc_left + yc < int2hwFloat(r)) or
                 (xc_right + yc < int2hwFloat(r))))) then

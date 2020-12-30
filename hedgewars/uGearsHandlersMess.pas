@@ -4104,7 +4104,7 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepSeductionWork(Gear: PGear);
 var i: LongInt;
-    hogs: PGearArrayS;
+    gears: PGearArrayS;
     HHGear: PGear;
 begin
     AllInactive := false;
@@ -4118,12 +4118,12 @@ begin
         exit;
         end;
 
-    hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Radius);
-    if hogs.size > 0 then
+    gears := GearsNear(Gear^.X, Gear^.Y, Gear^.Radius);
+    if gears.size > 0 then
         begin
-        for i:= 0 to hogs.size - 1 do
-            with hogs.ar^[i]^ do
-                if (hogs.ar^[i] <> CurrentHedgehog^.Gear) and (Hedgehog^.Effects[heFrozen] = 0)  then
+        for i:= 0 to gears.size - 1 do
+            with gears.ar^[i]^ do
+                if (gears.ar^[i] <> CurrentHedgehog^.Gear) and (Hedgehog^.Effects[heFrozen] = 0)  then
                     begin
                     if (WorldEdge <> weWrap) or (not (hwAbs(Gear^.X - X) > int2hwFloat(Gear^.Radius))) then
                         dX:= _50 * cGravity * (Gear^.X - X) / _5
