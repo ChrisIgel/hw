@@ -822,7 +822,7 @@ begin
         end;
     if (GameTicks and $3F) = 0 then
         AddVisualGear(hwRound(Gear^.X), hwRound(Gear^.Y), vgtSmokeTrace);
-    if ((GameTicks and $1FF) = 0) and (Random > 0.7) then
+    if ((GameTicks and $3FF) = 0) and (GetRandomf > _0_35) then
         AddGear(hwRound(Gear^.X), hwRound(Gear^.Y), gtShell, 0, Gear^.dX + GetRandomf * _0_1, Gear^.dY + GetRandomf * _0_1, 0);
 end;
 
