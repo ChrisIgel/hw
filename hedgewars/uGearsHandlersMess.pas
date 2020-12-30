@@ -2728,18 +2728,29 @@ procedure doStepWhip(Gear: PGear);
 var
     HHGear: PGear;
     i: LongInt;
+    dX: hwFloat;
 begin
     HHGear := Gear^.Hedgehog^.Gear;
     HHGear^.State := HHGear^.State or gstNoDamage;
     DeleteCI(HHGear);
+    dX := HHGear^.dX;
 
     ClearHitOrder();
     RefillProximityCache(Gear, 100);
     for i:= 0 to 3 do
         begin
         AddVisualGear(hwRound(Gear^.X) + hwSign(Gear^.dX) * (10 + 6 * i), hwRound(Gear^.Y) + 12 + Random(6), vgtDust);
-        AmmoShoveCache(Gear, Gear^.Boom, 25);
+        AmmoShoveCache(Gear, Gear^.Boom, 50);
         Gear^.X := Gear^.X + Gear^.dX * 5
+        end;
+
+    for i:= 0 to 200 do
+        begin
+        AddGear(hwRound(Gear^.X), hwRound(Gear^.Y), gtFlame, 0, dX, HHGear^.dY, 0);
+        if dX.isNegative then
+            dX := dX - _0_02
+        else
+            dX := dX + _0_02;
         end;
 
     ClearHitOrder();
