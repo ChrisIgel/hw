@@ -7118,14 +7118,14 @@ begin
     HedgehogChAngle(HHGear);
 
     dec(Gear^.Timer);
-    if (Gear^.Timer mod 50) = 0 then
+    if (Gear^.Timer mod 10) = 0 then
     begin
         Gear^.Tag := ((Gear^.Tag - 1) and 1) + 2;
 
         gX := hwRound(Gear^.X) + GetLaunchX(amMinigun, hwSign(HHGear^.dX), HHGear^.Angle);
         gY := hwRound(Gear^.Y) + GetLaunchY(amMinigun, HHGear^.Angle);
-        rx := rndSign(getRandomf * _0_2);
-        ry := rndSign(getRandomf * _0_2);
+        rx := rndSign(getRandomf * _0_1);
+        ry := rndSign(getRandomf * _0_1);
 
         bullet:= AddGear(gx, gy, gtMinigunBullet, 0, SignAs(AngleSin(HHGear^.Angle) * _0_8, HHGear^.dX) + rx, AngleCos(HHGear^.Angle) * ( - _0_8) + ry, 0);
         bullet^.CollisionMask:= lfNotCurHogCrate;

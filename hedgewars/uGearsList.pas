@@ -839,13 +839,13 @@ gtFlamethrower: begin
                 // Timer. First, it's the timer before shooting. Then it will become the shooting timer and is set to Karma
                 if gear^.Timer = 0 then
                     gear^.Timer:= 601;
-                // minigun shooting time. 1 bullet is fired every 50ms
-                gear^.Karma:= 3451;
+                // minigun shooting time. 1 bullet is fired every 30ms
+                gear^.Karma:= 6601;
                 end;
  gtMinigunBullet: begin
                 gear^.Radius:= 1;
                 gear^.Health:= 2;
-                gear^.Karma:= 5; //impact radius
+                gear^.Karma:= 8; //impact radius
                 gear^.Pos:= 0; //uses non-global hit order
                 gear^.Data:= nil;
                 end;
