@@ -1119,10 +1119,10 @@ begin
         end
     else
         begin
+        if (GameTicks mod 50) = 0 then
+            AddGear(gX, gY, gtCluster, 0, _0, _0, 20);
         if (Gear^.Timer and $F) = 0 then
             begin
-            if (GameTicks mod 20) = 0 then
-                AddGear(gX, gY, gtCluster, 0, Gear^.dX, Gear^.dY, 20);
 
             Gear^.dX := Gear^.dX + _0_0002 * (Gear^.Target.X - gX);
             Gear^.dY := Gear^.dY + _0_0002 * (Gear^.Target.Y - gY);
@@ -1138,7 +1138,7 @@ begin
         end;
 
 
-    if ((gX = Gear^.Target.X) and (gY = Gear^.Target.Y) or (Gear^.Timer = 0)) then
+    if ((abs(gX - Gear^.Target.X) < 5) and (abs(gY - Gear^.Target.Y) < 5) or (Gear^.Timer = 0)) then
         begin
         StopSoundChan(Gear^.SoundChannel);
         doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
