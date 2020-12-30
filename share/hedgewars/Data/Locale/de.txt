@@ -62,6 +62,7 @@
 00:59=Creeper
 00:60=Minigun
 00:61=Wachroboter
+00:62=Brösel
 
 01:00=Laden …
 01:01=Unentschieden

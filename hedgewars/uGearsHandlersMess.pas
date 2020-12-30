@@ -142,6 +142,7 @@ procedure doStepMinigunWork(Gear: PGear);
 procedure doStepMinigun(Gear: PGear);
 procedure doStepMinigunBullet(Gear: PGear);
 procedure doStepSentryDeploy(Gear: PGear);
+procedure doStepPressel(Gear: PGear);
 
 var
     upd: Longword;
@@ -7639,6 +7640,57 @@ begin
             Gear^.doStep := @doStepSentryLand;
         end;
     end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////
+procedure doStepPressel(Gear: PGear);
+var
+    land: Word;
+    dX, dY: hwfloat;
+    i: Longint;
+begin
+    land:= TestCollisionXwithGear(Gear, 2);
+    if land = 0 then land:= TestCollisionYwithGear(Gear,-2);
+    if land = 0 then land:= TestCollisionXwithGear(Gear,-2);
+    if land = 0 then land:= TestCollisionYwithGear(Gear, 2);
+    if (land <> 0) and ((land and lfBouncy = 0) or ((Gear^.State and gstMoving) = 0)) then
+        begin
+        if ((Gear^.State and gstMoving) <> 0) or (not isZero(Gear^.dX)) or (not isZero(Gear^.dY)) then
+            begin
+            PlaySound(sndSnotPlop);
+            Gear^.dX:= _0;
+            Gear^.dY:= _0;
+            Gear^.State:= Gear^.State and (not gstMoving);
+            AddCI(Gear);
+            end;
+        end
+    else
+        begin
+        Gear^.State:= Gear^.State or gstMoving;
+        DeleteCI(Gear);
+        doStepFallingGear(Gear);
+        AllInactive := false;
+        CalcRotationDirAngle(Gear);
+        end;
+
+    if (Gear^.State and gstFrozen) = 0 then
+        begin
+        AllInactive := false;
+        if Gear^.Timer = 0 then
+            begin
+            doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, CurrentHedgehog, EXPLPoisoned or EXPLAutoSound);
+            for i:= 0 to 127 do
+                begin
+                dX:= AngleCos(i * 16) * _0_5 * (getRandomf + _1);
+                dY:= AngleSin(i * 16) * _0_5 * (getRandomf + _1);
+                AddGear(hwRound(Gear^.X), hwRound(Gear^.Y), gtMine, 0, dX, dY, 0);
+                end;
+            DeleteGear(Gear);
+            end
+        else if Gear^.Timer = 1500 then PlaySound(sndPressel)
+        else if Gear^.Timer = 1000 then makeHogsWorry(Gear^.X, Gear^.Y, Gear^.Boom, Gear^.Kind);
+        dec(Gear^.Timer);
+        end;
 end;
 
 end.

@@ -108,6 +108,7 @@ const
 (*        gtMinigun *) , amMinigun
 (*  gtMinigunBullet *) , amMinigun
 (*         gtSentry *) , amSentry
+(*        gtPressel *) , amPressel
     );
 
 
@@ -319,6 +320,7 @@ gtSniperRifleShot: Gear^.Boom := 500000;
         gtCreeper: Gear^.Boom := 100;
   gtMinigunBullet: Gear^.Boom := 2;
          gtSentry: Gear^.Boom := 40;
+        gtPressel: Gear^.Boom := 150;
     end;
 
 case Kind of
@@ -862,6 +864,10 @@ gtGenericFaller:begin
                 gear^.Elasticity:= _0_9;
                 gear^.Friction:= _0_995;
                 gear^.Density:= _1;
+                end;
+     gtPressel: begin
+                gear^.Radius:= 4;
+                gear^.Sticky:= true;
                 end;
     end;
 

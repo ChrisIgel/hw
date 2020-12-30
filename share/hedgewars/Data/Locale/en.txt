@@ -64,6 +64,7 @@
 00:59=Creeper
 00:60=Minigun
 00:61=Sentry Bot
+00:62=Broesel
 
 ; Game messages and HUD texts
 01:00=Loading …

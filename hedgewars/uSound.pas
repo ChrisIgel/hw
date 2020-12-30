@@ -335,7 +335,9 @@ var cInitVolume: LongInt;
             (FileName:           'planewater.ogg'; Path: ptSounds; AltPath: ptNone),// sndPlaneWater
             (FileName:         'dynamitefuse.ogg'; Path: ptSounds; AltPath: ptNone),// sndDynamiteFuse
             (FileName:       'dynamiteimpact.ogg'; Path: ptSounds; AltPath: ptNone),// sndDynamiteImpact
-            (FileName:            'cakemusic.ogg'; Path: ptSounds; AltPath: ptNone) // sndCakeMusic
+            (FileName:            'cakemusic.ogg'; Path: ptSounds; AltPath: ptNone),// sndCakeMusic
+            (FileName:              'pressel.ogg'; Path: ptSounds; AltPath: ptNone),// sndPressel
+            (FileName:             'snotplop.ogg'; Path: ptSounds; AltPath: ptNone) // sndSnotPlop
             );
 
 

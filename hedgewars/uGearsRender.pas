@@ -956,6 +956,7 @@ begin
                 amResurrector: if ((Gear^.State and gstMoving) = 0) then
                     DrawCircle(ox, oy, cResurrectorDist - 2 + CurrentHedgehog^.Gear^.Health div 50, 4, $F5, $DB, $35, $AA);
                 amFirePunch: DrawSpriteRotatedF(sprFirePunch, hx + 6 * sign + 1, hy - 5, (RealTicks div 50) mod 16, sign, 0);
+                amPressel: DrawSpriteRotated(sprHandPressel, hx, hy, hwSign(Gear^.dX), aangle);
             end;
 
             case amt of
@@ -1747,10 +1748,13 @@ begin
                          DrawSpriteRotatedF(sprCreeper, x, y, 1, hwRound(SignAs(_1,Gear^.Hedgehog^.Gear^.X-Gear^.X)), 0)
                     else DrawSpriteRotatedF(sprCreeper, x, y, 1, hwRound(SignAs(_1,Gear^.dX)), 0);
             gtSentry: begin
-                DrawSpriteRotated(sprSentry, x, y, hwSign(Gear^.dX), 0);
-                if Gear^.Tag >= 0 then
-                    DrawCircle(x, y, Gear^.Radius, 1, 255, 0, 0, 255);
-            end;
+                          DrawSpriteRotated(sprSentry, x, y, hwSign(Gear^.dX), 0);
+                          if Gear^.Tag >= 0 then
+                              DrawCircle(x, y, Gear^.Radius, 1, 255, 0, 0, 255);
+                      end;
+            gtPressel: begin
+                           DrawSpriteRotated(sprPressel, x, y, 0, Gear^.DirAngle);
+                       end;
             gtGenericFaller: begin
                              // DEBUG: draw gtGenericFaller
                              if Gear^.Tag <> 0 then

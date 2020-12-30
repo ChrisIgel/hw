@@ -874,10 +874,14 @@ const
             Width:  32; Height: 38; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpLowest; getDimensions: false; getImageDimensions: true),// sprHogBubble
             (FileName: 'Happy'; Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
             Width:  32; Height: 32; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpLowest; getDimensions: false; getImageDimensions: true),// sprHappy
-           (FileName: 'Duck'; Path: ptGraphics; AltPath: ptNone; Texture: nil; Surface: nil;
-  Width:  32; Height: 32; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true),// sprSentry
+            (FileName: 'Duck'; Path: ptGraphics; AltPath: ptNone; Texture: nil; Surface: nil;
+            Width:  32; Height: 32; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true),// sprSentry
             (FileName: 'amDuck'; Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
-  Width:  64; Height: 64; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true) // sprHandSentry
+            Width:  64; Height: 64; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true), // sprHandSentry
+            (FileName: 'Pressel'; Path: ptGraphics; AltPath: ptNone; Texture: nil; Surface: nil;
+            Width:  16; Height: 16; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true), // sprPressel
+            (FileName: 'amPressel'; Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
+            Width:  64; Height: 64; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true) // sprHandPressel
             );
 
 
@@ -2583,7 +2587,30 @@ const
             PosCount: 0;
             PosSprite: sprWater;
             ejectX: 10;
-            ejectY: -5)
+            ejectY: -5),
+// Pressel
+            (NameId: sidPressel;
+            NameTex: nil;
+            Probability: 100;
+            NumberInCase: 1;
+            Ammo: (Propz: ammoprop_Power or ammoprop_AltUse;
+                Count: 1;
+                NumPerTurn: 0;
+                Timer: 3000;
+                Pos: 0;
+                AmmoType: amPressel;
+                AttackVoice: sndIncoming;
+                Bounciness: defaultBounciness);
+            Slot: 8;
+            TimeAfterTurn: 3000;
+            minAngle: 0;
+            maxAngle: 0;
+            isDamaging: true;
+            SkipTurns: 0;
+            PosCount: 0;
+            PosSprite: sprWater;
+            ejectX: 0;
+            ejectY: 0)
         );
 
 var
