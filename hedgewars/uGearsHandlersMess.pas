@@ -631,7 +631,6 @@ begin
                 x := hwRound(Gear^.X);
                 y := hwRound(Gear^.Y);
                 gdX:= Gear^.dX;
-                doMakeExplosion(x, y, Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
                 for i:= 0 to 15 do
                     begin
                     dX := rndSign(GetRandomf * _0_4) + gdX / 5;
