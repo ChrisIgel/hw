@@ -458,7 +458,7 @@ case Kind of
                 end;
   gtPickHammer: begin
                 gear^.Radius:= 20;
-                if gear^.Timer = 0 then gear^.Timer:= 10000
+                if gear^.Timer = 0 then gear^.Timer:= 8000
                 end;
    gtHammerHit: begin
                 gear^.Radius:= 8;
