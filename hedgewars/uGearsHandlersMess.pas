@@ -5906,11 +5906,11 @@ begin
     if Gear^.Timer = 0 then
         begin
         dec(Gear^.Health);
-        if (Gear^.Health mod 5) = 0 then
+        if (Gear^.Health mod 3) = 0 then
             begin
-            rx := rndSign(getRandomf * _0_1);
-            ry := rndSign(getRandomf * _0_1);
-            speed := _0_5 * (_10 / Gear^.Tag);
+            rx := rndSign(getRandomf);
+            ry := rndSign(getRandomf);
+            speed := _5 * (_10 / Gear^.Tag);
 
             flame:= AddGear(gx, gy, gtFlame, gstTmpFlag,
                     SignAs(AngleSin(HHGear^.Angle) * speed, HHGear^.dX) + rx,
@@ -5938,7 +5938,7 @@ begin
         end
     else
         begin
-        i:= Gear^.Health div 5;
+        i:= Gear^.Health div 10;
         if (not cOnlyStats) and (i <> Gear^.Damage) and ((GameTicks and $3F) = 0) then
             begin
             Gear^.Damage:= i;

@@ -766,7 +766,7 @@ case Kind of
 gtFlamethrower: begin
                 gear^.Tag:= 10;
                 if gear^.Timer = 0 then gear^.Timer:= 10;
-                gear^.Health:= 500;
+                gear^.Health:= 1000;
                 gear^.Damage:= 100;
                 end;
      gtLandGun: begin
