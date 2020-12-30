@@ -276,7 +276,7 @@ case Kind of
            gtCase: Gear^.Boom := 25;
         gtAirMine: Gear^.Boom := 30;
      gtExplosives: Gear^.Boom := 75;
-        gtGrenade: Gear^.Boom := 50;
+        gtGrenade: Gear^.Boom := 100;
           gtShell: Gear^.Boom := 50;
             gtBee: Gear^.Boom := 100;
     gtShotgunShot: Gear^.Boom := 25;
@@ -322,7 +322,19 @@ gtSniperRifleShot: Gear^.Boom := 500000;
     end;
 
 case Kind of
-     gtGrenade,
+     gtGrenade: begin
+                gear^.ImpactSound:= sndGrenadeImpact;
+                gear^.nImpactSounds:= 1;
+                gear^.AdvBounce:= 1;
+                gear^.BounceTimes:= 30;
+                gear^.Radius:= 5;
+                gear^.Elasticity:= _0_8;
+                gear^.Friction:= _0_8;
+                gear^.Density:= _1_5;
+                gear^.RenderTimer:= true;
+                if gear^.Timer = 0 then
+                    gear^.Timer:= 3000
+                end;
      gtClusterBomb,
      gtGasBomb: begin
                 gear^.ImpactSound:= sndGrenadeImpact;

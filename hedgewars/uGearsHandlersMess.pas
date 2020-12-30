@@ -576,21 +576,24 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepBomb(Gear: PGear);
 var
-    i, x, y: LongInt;
+    i, j, x, y: LongInt;
     dX, dY, gdX: hwFloat;
     vg: PVisualGear;
+    hogs: PGearArrayS;
 begin
     AllInactive := false;
 
     doStepFallingGear(Gear);
 
-    dec(Gear^.Timer);
+    if Gear^.Timer > 0 then
+        dec(Gear^.Timer);
+
     if Gear^.Timer = 1000 then // might need adjustments
         case Gear^.Kind of
-            gtGrenade,
             gtClusterBomb,
             gtWatermelon,
             gtHellishBomb: makeHogsWorry(Gear^.X, Gear^.Y, Gear^.Boom, Gear^.Kind);
+            gtGrenade: makeHogsWorry(Gear^.X, Gear^.Y, Gear^.Boom * 3, Gear^.Kind);
             gtGasBomb: makeHogsWorry(Gear^.X, Gear^.Y, 50, Gear^.Kind);
         end;
 
@@ -611,7 +614,34 @@ begin
     if Gear^.Timer = 0 then
         begin
         case Gear^.Kind of
-            gtGrenade: doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
+            gtGrenade:
+                begin
+                Gear^.RenderTimer := false;
+                if Gear^.BounceTimes > 0 then
+                    begin
+                    if (GameTicks mod 100) = 0 then
+                        begin
+                        dec(Gear^.BounceTimes);
+                        hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 3);
+                        if hogs.size > 0 then
+                            begin
+                            for j:= 0 to hogs.size - 1 do
+                                with hogs.ar^[j]^ do
+                                    begin
+                                    dX:= ((Gear^.X - X)*_0_01+rndSign(getRandomf)*_2)*_0_2*(Gear^.BounceTimes div 10 + 3);
+                                    dY:= ((Gear^.Y - Y)*_0_01+rndSign(getRandomf)*_2)*_0_2*(Gear^.BounceTimes div 10 + 3);
+                                    Active:= true;
+                                    end;
+                            end;
+                        end;
+                    end
+                    else
+                        begin
+                        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
+                        DeleteGear(Gear);
+                        exit;
+                        end;
+                end;
             gtBall: doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
             gtClusterBomb:
                 begin
@@ -673,8 +703,11 @@ begin
                     end
                 end;
             end;
-        DeleteGear(Gear);
-        exit
+        if Gear^.Kind <> gtGrenade then
+            begin
+            DeleteGear(Gear);
+            exit
+            end;
         end;
 
     CalcRotationDirAngle(Gear);

@@ -304,6 +304,7 @@ type
             LinkedGear: PGear;      // Used to track a related gear. Portal pairs for example.
             SoundChannel: LongInt;  // Used to track a sound the gear started
             Data: Pointer; // pointer to gear type specific data structure (if any)
+            BounceTimes: LongInt;
             end;
     TPGearArray = array of PGear;
     PGearArrayS = record
