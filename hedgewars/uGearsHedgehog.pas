@@ -341,8 +341,8 @@ with Gear^,
                 end
             else
                 begin
-                newDx:= xx*Power/cPowerDivisor;
-                newDy:= yy*Power/cPowerDivisor;
+                newDx:= xx*Power/cPowerDivisor * 3;
+                newDy:= yy*Power/cPowerDivisor * 3;
                 altUse:= false
                 end;
 
