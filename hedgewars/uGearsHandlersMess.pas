@@ -2987,11 +2987,16 @@ begin
     if hwRound(HHGear^.Y) <= Gear^.Tag - 2 then
         begin
         Gear^.Tag := hwRound(HHGear^.Y);
-        DrawTunnel(HHGear^.X - int2hwFloat(cHHRadius), HHGear^.Y - _1, _0_5, _0, cHHRadius * 4+2, 2);
-        HHGear^.State := HHGear^.State or gstNoDamage;
+        DrawTunnel(HHGear^.X - int2hwFloat(cHHRadius) * 2, HHGear^.Y - _1, _0_5, _0, cHHRadius * 8+2, 4);
+        HHGear^.State := HHGear^.State or gstNoDamage or gstNotKickable;
         Gear^.Y := HHGear^.Y;
-        AmmoShoveCache(Gear, Gear^.Boom, 40);
-        HHGear^.State := HHGear^.State and (not gstNoDamage)
+        AmmoShoveCache(Gear, Gear^.Boom, 100);
+        if (GameTicks and $A) = 0 then
+            begin
+            AddGear(hwRound(HHGear^.X), hwRound(HHGear^.Y), gtFlame, 0, _1, _0, 0);
+            AddGear(hwRound(HHGear^.X), hwRound(HHGear^.Y), gtFlame, 0, -_1, _0, 0);
+            end;
+        HHGear^.State := HHGear^.State and (not gstNoDamage) and (not gstNotKickable)
         end;
 
     HHGear^.dY := HHGear^.dY + cGravity;
@@ -3023,7 +3028,7 @@ begin
     DeleteCI(HHGear);
     HHGear^.dX := SignAs(cLittle, Gear^.dX);
 
-    HHGear^.dY := - _0_3;
+    HHGear^.dY := - _0_9;
 
     ClearHitOrder();
     RefillProximityCache(Gear, 300);
@@ -3032,7 +3037,7 @@ begin
     Gear^.dX := SignAs(_0_45, Gear^.dX);
     Gear^.dY := - _0_9;
     Gear^.doStep := @doStepFirePunchWork;
-    DrawTunnel(HHGear^.X - int2hwFloat(cHHRadius), HHGear^.Y + _1, _0_5, _0, cHHRadius * 4, 5);
+    DrawTunnel(HHGear^.X - int2hwFloat(cHHRadius) * 2, HHGear^.Y + _1, _0_5, _0, cHHRadius * 8, 10);
 
     PlaySoundV(TSound(ord(sndFirePunch1) + GetRandom(6)), HHGear^.Hedgehog^.Team^.voicepack)
 end;
