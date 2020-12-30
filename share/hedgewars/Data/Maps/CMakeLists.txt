@@ -17,6 +17,18 @@ foreach(dir
     Control
     CrazyMission
     CTF_Blizzard
+    Custom_Doomwars
+    Custom_Druk
+    Custom_Europa
+    Custom_Karibik
+    Custom_Megatrichter
+    Custom_RopesVerschnitt
+    Custom_Senegal
+    Custom_Tetris
+    Custom_Trichter3
+    Custom_Trichter3OP
+    Custom_Wahl2020
+    Custom_WeltFlaggen
     EarthRise
     Eyes
     Hammock
