@@ -6591,9 +6591,9 @@ procedure doStepIceGun(Gear: PGear);
 const iceWaitCollision = 0;
 const iceCollideWithGround = 1;
 const iceCollideWithWater = 5;
-const groundFreezingTime = 1000;
-const iceRadius = 32;
-const iceHeight = 40;
+const groundFreezingTime = 200;
+const iceRadius = 64;
+const iceHeight = 60;
 var
     HHGear, iter: PGear;
     landRect: TSDL_Rect;
@@ -6794,7 +6794,7 @@ begin
                                 begin
                                 hogs.ar^[i]^.Active:= true;
                                 if hogs.ar^[i]^.Hedgehog^.Effects[heFrozen] < 256 then
-                                    hogs.ar^[i]^.Hedgehog^.Effects[heFrozen] := hogs.ar^[i]^.Hedgehog^.Effects[heFrozen] + 1
+                                    hogs.ar^[i]^.Hedgehog^.Effects[heFrozen] := hogs.ar^[i]^.Hedgehog^.Effects[heFrozen] + 2
                                 else if hogs.ar^[i]^.Hedgehog^.Effects[heFrozen] = 256 then
                                     begin
                                     hogs.ar^[i]^.Hedgehog^.Effects[heFrozen]:= 200000-1;//cHedgehogTurnTime + cReadyDelay
