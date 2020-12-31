@@ -3028,7 +3028,6 @@ begin
         begin
         Gear^.Tag := hwRound(HHGear^.Y);
         DrawTunnel(HHGear^.X - int2hwFloat(cHHRadius) * 2, HHGear^.Y - _1, _0_5, _0, cHHRadius * 8+2, 4);
-        HHGear^.State := HHGear^.State or gstNoDamage or gstNotKickable;
         Gear^.Y := HHGear^.Y;
         AmmoShoveCache(Gear, Gear^.Boom, 100);
         if (GameTicks and $A) = 0 then
@@ -3036,7 +3035,6 @@ begin
             AddGear(hwRound(HHGear^.X), hwRound(HHGear^.Y), gtFlame, 0, _1, _0, 0);
             AddGear(hwRound(HHGear^.X), hwRound(HHGear^.Y), gtFlame, 0, -_1, _0, 0);
             end;
-        HHGear^.State := HHGear^.State and (not gstNoDamage) and (not gstNotKickable)
         end;
 
     HHGear^.dY := HHGear^.dY + cGravity;
@@ -3065,6 +3063,8 @@ var
 begin
     AllInactive := false;
     HHGear := Gear^.Hedgehog^.Gear;
+    Gear^.Hedgehog^.Effects[heInvulnerable] := 1;
+    HHGear^.State := HHGear^.State or gstNoDamage or gstNotKickable;
     DeleteCI(HHGear);
     HHGear^.dX := SignAs(cLittle, Gear^.dX);
 
