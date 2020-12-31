@@ -436,7 +436,7 @@ with Gear^,
                        amSwitch: newGear:= AddGear(hwRound(lx), hwRound(ly), gtSwitcher, 0, _0, _0, 0);
                        amMortar: begin
                                  playSound(sndMortar);
-                                 newGear:= AddGear(hwRound(lx), hwRound(ly), gtMortar,  0, xx*cMaxPower/cPowerDivisor, yy*cMaxPower/cPowerDivisor, 0);
+                                 newGear:= AddGear(hwRound(lx), hwRound(ly), gtMortar,  0, xx*cMaxPower/cPowerDivisor * 2, yy*cMaxPower/cPowerDivisor * 2, 0);
                                  end;
                       amRCPlane: begin
                                  newGear:= AddGear(hwRound(lx), hwRound(ly), gtRCPlane,  0, xx * cMaxPower / cPowerDivisor / 4, yy * cMaxPower / cPowerDivisor / 4, 0);
