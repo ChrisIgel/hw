@@ -4317,10 +4317,10 @@ begin
         exit;
         end;
 
-    DrawTunnel(Gear^.X, Gear^.Y, Gear^.dX, Gear^.dY, 2, 6);
-    Gear^.X := Gear^.X + Gear^.dX;
-    Gear^.Y := Gear^.Y + Gear^.dY;
-    if (Gear^.Timer mod 30) = 0 then
+    DrawTunnel(Gear^.X, Gear^.Y, Gear^.dX, Gear^.dY, 16, 6);
+    Gear^.X := Gear^.X + Gear^.dX * 8;
+    Gear^.Y := Gear^.Y + Gear^.dY * 8;
+    if (Gear^.Timer mod 20) = 0 then
         AddVisualGear(hwRound(Gear^.X + _20 * Gear^.dX), hwRound(Gear^.Y + _20 * Gear^.dY), vgtDust);
     if (CheckGearDrowning(Gear)) then
         begin

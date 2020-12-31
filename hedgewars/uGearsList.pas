@@ -299,7 +299,7 @@ case Kind of
      gtWatermelon: Gear^.Boom := 75;
     gtHellishBomb: Gear^.Boom := 150;
           gtDrill: if Gear^.State and gsttmpFlag = 0 then
-                        Gear^.Boom := 50
+                        Gear^.Boom := 150
                    else Gear^.Boom := 60;
            gtBall: Gear^.Boom := 40;
         gtRCPlane: Gear^.Boom := 25;
