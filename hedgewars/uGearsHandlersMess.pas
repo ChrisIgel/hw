@@ -5944,8 +5944,8 @@ begin
         dec(Gear^.Health);
         if (Gear^.Health mod 3) = 0 then
             begin
-            rx := rndSign(getRandomf);
-            ry := rndSign(getRandomf);
+            rx := rndSign(getRandomf * _0_6);
+            ry := rndSign(getRandomf * _0_6);
             speed := _5 * (_10 / Gear^.Tag);
 
             flame:= AddGear(gx, gy, gtFlame, gstTmpFlag,
