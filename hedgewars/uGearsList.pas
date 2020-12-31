@@ -290,7 +290,7 @@ case Kind of
         gtCluster: Gear^.Boom := Timer;
          gtShover: Gear^.Boom := 100;
       gtFirePunch: Gear^.Boom := 100;
-        gtAirBomb: Gear^.Boom := 30;
+        gtAirBomb: Gear^.Boom := 60;
       gtBlowTorch: Gear^.Boom := 2;
          gtMortar: Gear^.Boom := 20;
            gtWhip: Gear^.Boom := 50;
@@ -300,7 +300,7 @@ case Kind of
     gtHellishBomb: Gear^.Boom := 150;
           gtDrill: if Gear^.State and gsttmpFlag = 0 then
                         Gear^.Boom := 50
-                   else Gear^.Boom := 30;
+                   else Gear^.Boom := 60;
            gtBall: Gear^.Boom := 40;
         gtRCPlane: Gear^.Boom := 25;
 // sniper rifle is distance linked, this Boom is just an arbitrary scaling factor applied to timer-based-damage
@@ -623,8 +623,8 @@ case Kind of
                 gear^.Tag:= Y
                 end;
    gtAirAttack: begin
-                gear^.Health:= 6;
-                gear^.Damage:= 30;
+                gear^.Health:= 25; // count
+                gear^.Damage:= 40; // spacing
                 gear^.Z:= cHHZ+2;
                 gear^.Karma:= 0; // for sound effect: 0 = normal, 1 = underwater
                 gear^.Radius:= 150;

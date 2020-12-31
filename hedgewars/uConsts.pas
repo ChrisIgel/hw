@@ -84,7 +84,7 @@ const
     cCentralMessageColor  : Longword = $FFFFFF00; // color of message in center of screen like quit or pause
 
 {$WARNINGS OFF}
-    cAirPlaneSpeed: hwFloat = (isNegative: false; QWordValue:   3006477107); // 1.4
+    cAirPlaneSpeed: hwFloat = (isNegative: false; QWordValue:   6006477107);
     cBombsSpeed   : hwFloat = (isNegative: false; QWordValue:    429496729);
 {$WARNINGS ON}
 
