@@ -284,7 +284,7 @@ case Kind of
      gtPickHammer: Gear^.Boom := 12;
 //           gtRope: Gear^.Boom := 2; could be funny to have rope attaching to hog deal small amount of dmg?
      gtDEagleShot: Gear^.Boom := 20;
-       gtDynamite: Gear^.Boom := 75;
+       gtDynamite: Gear^.Boom := 200;
     gtClusterBomb: Gear^.Boom := 20;
      gtMelonPiece,
         gtCluster: Gear^.Boom := Timer;
