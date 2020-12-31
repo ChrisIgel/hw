@@ -650,11 +650,11 @@ begin
                 y := hwRound(Gear^.Y);
                 gdX:= Gear^.dX;
                 doMakeExplosion(x, y, Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
-                for i:= 0 to 4 do
+                for i:= 0 to 14 do
                     begin
-                    dX := rndSign(GetRandomf * _0_1) + gdX / 5;
+                    dX := rndSign(GetRandomf * _0_15) + gdX / 5;
                     dY := (GetRandomf - _3) * _0_08;
-                    FollowGear := AddGear(x, y, gtCluster, 0, dX, dY, 25)
+                    FollowGear := AddGear(x, y, gtCluster, 0, dX, dY, 40)
                     end
                 end;
             gtWatermelon:
