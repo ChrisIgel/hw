@@ -2876,9 +2876,9 @@ begin
                     Gear^.X := Gear^.X + Gear^.dX
             else
                 // Apply dX and wind speed
-                Gear^.X := Gear^.X + tdX;
+                Gear^.X := Gear^.X + tdX * 2;
 
-            Gear^.Y := Gear^.Y + Gear^.dY;
+            Gear^.Y := Gear^.Y + Gear^.dY * 2;
         end;
 
         gX := hwRound(Gear^.X);
