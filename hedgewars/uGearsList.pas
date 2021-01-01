@@ -302,7 +302,7 @@ case Kind of
                         Gear^.Boom := 150
                    else Gear^.Boom := 60;
            gtBall: Gear^.Boom := 40;
-        gtRCPlane: Gear^.Boom := 25;
+        gtRCPlane: Gear^.Boom := 80;
 // sniper rifle is distance linked, this Boom is just an arbitrary scaling factor applied to timer-based-damage
 // because, eh, why not..
 gtSniperRifleShot: Gear^.Boom := 500000;
@@ -726,8 +726,8 @@ case Kind of
                 if gear^.Timer = 0 then gear^.Timer:= 5001;
                 end;
      gtRCPlane: begin
-                if gear^.Timer = 0 then gear^.Timer:= 15000;
-                gear^.Health:= 3;
+                if gear^.Timer = 0 then gear^.Timer:= 30000;
+                gear^.Health:= 10;
                 gear^.Radius:= 8;
                 gear^.Tint:= gear^.Hedgehog^.Team^.Clan^.Color shl 8 or $FF
                 end;

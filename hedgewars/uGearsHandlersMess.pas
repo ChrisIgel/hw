@@ -4480,7 +4480,7 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepRCPlaneWork(Gear: PGear);
 
-const cAngleSpeed =   3;
+const cAngleSpeed =   4;
 var
     HHGear: PGear;
     i: LongInt;
@@ -4554,8 +4554,8 @@ begin
         Gear^.dY := AngleCos(trueAngle) * -_0_25;
         end;
 
-    Gear^.X := Gear^.X + Gear^.dX;
-    Gear^.Y := Gear^.Y + Gear^.dY;
+    Gear^.X := Gear^.X + Gear^.dX * _1_2;
+    Gear^.Y := Gear^.Y + Gear^.dY * _1_2;
 
     if (GameTicks and $FF) = 0 then
         if Gear^.Timer < 3500 then
@@ -4599,7 +4599,7 @@ begin
         if ((Gear^.State and gstCollision) <> 0) then
             begin
             doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
-            for i:= 0 to 15 do
+            for i:= 0 to 30 do
                 begin
                 dX := AngleCos(i * 64) * _0_5 * (GetRandomf + _1);
                 dY := AngleSin(i * 64) * _0_5 * (GetRandomf + _1);
