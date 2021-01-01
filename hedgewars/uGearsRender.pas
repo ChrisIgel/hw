@@ -919,26 +919,26 @@ begin
                         begin
                         if WorldEdge = weWrap then
                             begin
-                            if hwRound(Gear^.X) < leftX + 256 then
+                            if hwRound(Gear^.X) < leftX + cDefaultBuildMaxDist then
                                 DrawSpriteClipped(sprGirder,
-                                                rightX+(ox-leftX)-256,
-                                                oy-256,
+                                                rightX+(ox-leftX)-cDefaultBuildMaxDist,
+                                                oy-cDefaultBuildMaxDist,
                                                 topY+WorldDy,
                                                 rightX+WorldDx,
                                                 cWaterLine+WorldDy,
                                                 leftX+WorldDx);
-                            if hwRound(Gear^.X) > rightX - 256 then
+                            if hwRound(Gear^.X) > rightX - cDefaultBuildMaxDist then
                                 DrawSpriteClipped(sprGirder,
-                                                leftX-(rightX-ox)-256,
-                                                oy-256,
+                                                leftX-(rightX-ox)-cDefaultBuildMaxDist,
+                                                oy-cDefaultBuildMaxDist,
                                                 topY+WorldDy,
                                                 rightX+WorldDx,
                                                 cWaterLine+WorldDy,
                                                 leftX+WorldDx)
                             end;
                         DrawSpriteClipped(sprGirder,
-                                        ox-256,
-                                        oy-256,
+                                        ox-cDefaultBuildMaxDist,
+                                        oy-cDefaultBuildMaxDist,
                                         topY+WorldDy,
                                         rightX+WorldDx,
                                         cWaterLine+WorldDy,

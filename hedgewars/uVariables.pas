@@ -616,7 +616,7 @@ const
             (FileName:   'Vampiric'; Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
             Width:  48; Height: 48; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpHigh; getDimensions: false; getImageDimensions: true),// sprVampiric
             (FileName:   'amGirder'; Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
-            Width: 512; Height:512; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true),// sprGirder
+            Width: 1024; Height: 1024; imageWidth: 0; imageHeight: 0; saveSurf: false; critical: true; checkSum: false; priority: tpMedium; getDimensions: false; getImageDimensions: true),// sprGirder
             (FileName:'SpeechCorner';Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
             Width:  12; Height: 9; imageWidth: 0; imageHeight: 0; saveSurf: true; critical: true; checkSum: false; priority: tpLowest; getDimensions: false; getImageDimensions: true),// sprSpeechCorner
             (FileName: 'SpeechEdge'; Path: ptHedgehog; AltPath: ptNone; Texture: nil; Surface: nil;
