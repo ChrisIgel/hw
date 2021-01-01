@@ -422,6 +422,7 @@ type
             stats: TStatistics;
             Hat: shortstring;
             InitialHealth: LongInt; // used for gfResetHealth
+            ResurrectorHealth: LongInt;
             King: boolean;  // Flag for a bunch of hedgehog attributes
             Unplaced: boolean;  // Flag for hog placing mode
             UnplacedKing: boolean;  // Flag for king placing phase in King Mode

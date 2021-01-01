@@ -6228,7 +6228,7 @@ begin
             hh^.Gear^.Y := hh^.Gear^.Y - _1;
         end;
 
-    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, Gear^.Radius + CurrentHedgehog^.InitialHealth div 50);
+    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, cResurrectorDist + (CurrentHedgehog^.ResurrectorHealth div 50));
 
     if graves.size = 0 then
         begin
@@ -6241,13 +6241,12 @@ begin
     if ((Gear^.Message and gmAttack) <> 0) and (hh^.Gear^.Health > 0) and (TurnTimeLeft > 0) then
         begin
         if LongInt(graves.size) <= Gear^.Tag then Gear^.Tag:= 0;
-        dec(hh^.Gear^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
+        dec(hh^.Gear^.Health, 1 + (CurrentHedgehog^.ResurrectorHealth div 500));
         if (hh^.Gear^.Health <= 0) and (hh^.Gear^.Damage = 0) then
             hh^.Gear^.Damage:= 1;
         RenderHealth(hh^);
         RecountTeamHealth(hh^.Team);
-        inc(graves.ar^[Gear^.Tag]^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
-        inc(Gear^.Tag)
+        inc(graves.ar^[Gear^.Tag]^.Health, 1 + (CurrentHedgehog^.ResurrectorHealth div 500));
         end
     else
         begin
@@ -6294,7 +6293,8 @@ var
     i: LongInt;
 begin
     AllInactive := false;
-    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, Gear^.Radius + CurrentHedgehog^.InitialHealth div 50);
+    CurrentHedgehog^.ResurrectorHealth := CurrentHedgehog^.Gear^.Health;
+    graves := GearsNear(Gear^.X, Gear^.Y, gtGrave, cResurrectorDist + (CurrentHedgehog^.ResurrectorHealth div 50));
 
     if graves.size > 0 then
         begin
@@ -6308,12 +6308,12 @@ begin
         if ((Gear^.Message and gmAttack) <> 0) and (hh^.Gear^.Health > 0) and (TurnTimeLeft > 0) then
             begin
             if LongInt(graves.size) <= Gear^.Tag then Gear^.Tag:= 0;
-            dec(hh^.Gear^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
+            dec(hh^.Gear^.Health, 1 + (CurrentHedgehog^.ResurrectorHealth div 500));
             if (hh^.Gear^.Health <= 0) and (hh^.Gear^.Damage = 0) then
                 hh^.Gear^.Damage:= 1;
             RenderHealth(hh^);
             RecountTeamHealth(hh^.Team);
-            inc(graves.ar^[Gear^.Tag]^.Health, CurrentHedgehog^.InitialHealth div 1000 + 1);
+            inc(graves.ar^[Gear^.Tag]^.Health, 1 + (CurrentHedgehog^.ResurrectorHealth div 500));
             inc(Gear^.Tag)
             end
         end

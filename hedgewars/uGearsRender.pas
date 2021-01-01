@@ -954,7 +954,7 @@ begin
                 amLandGun: DrawSpriteRotated(sprHandLandGun, hx, hy, sign, aangle);
                 amIceGun: DrawSpriteRotated(sprIceGun, hx, hy, sign, aangle);
                 amResurrector: if ((Gear^.State and gstMoving) = 0) then
-                    DrawCircle(ox, oy, cResurrectorDist - 2 + CurrentHedgehog^.Gear^.Health div 50, 4, $F5, $DB, $35, $AA);
+                    DrawCircle(ox, oy, cResurrectorDist - 2 + (CurrentHedgehog^.Gear^.Health div 50), 4, $F5, $DB, $35, $AA);
                 amFirePunch: DrawSpriteRotatedF(sprFirePunch, hx + 6 * sign + 1, hy - 5, (RealTicks div 50) mod 16, sign, 0);
                 amPressel: DrawSpriteRotated(sprHandPressel, hx, hy, hwSign(Gear^.dX), aangle);
             end;

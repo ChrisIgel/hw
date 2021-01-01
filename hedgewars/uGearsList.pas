@@ -796,7 +796,6 @@ gtFlamethrower: begin
                 gear^.Tint:= $C0C000C0
                 end;
  gtResurrector: begin
-                gear^.Radius := cResurrectorDist;
                 gear^.Tag := 0;
                 gear^.Tint:= $F5DB35FF
                 end;
