@@ -4657,8 +4657,8 @@ begin
         dec(Gear^.Pos);
     AllInactive := false;
     HHGear := Gear^.Hedgehog^.Gear;
-    move := _0_2;
-    fuel := 50;
+    move := _0_5;
+    fuel := 40;
     if HHGear^.Message and gmPrecise <> 0 then
         HedgehogChAngle(HHGear)
     else if (Gear^.Health > 0) or (Gear^.Health = JETPACK_FUEL_INFINITE) then
@@ -4669,7 +4669,7 @@ begin
                 begin
                 if isUnderwater then
                     begin
-                    HHGear^.dY := HHGear^.dY - (move * _0_7);
+                    HHGear^.dY := HHGear^.dY - (move * _0_4);
                     for i:= random(10)+10 downto 0 do
                         begin
                         bubble := AddVisualGear(hwRound(HHGear^.X) - 8 + random(16), hwRound(HHGear^.Y) + 16 + random(8), vgtBubble);
@@ -4691,7 +4691,7 @@ begin
         move.isNegative := (HHGear^.Message and gmLeft) <> 0;
         if (HHGear^.Message and (gmLeft or gmRight)) <> 0 then
             begin
-            HHGear^.dX := HHGear^.dX + (move * _0_1);
+            HHGear^.dX := HHGear^.dX + (move * _0_2);
             if isUnderwater then
                 begin
                 for i:= random(5)+5 downto 0 do
