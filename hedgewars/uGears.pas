@@ -177,7 +177,7 @@ begin
             // Deal poison damage (when not frozen)
             if (Gear^.Hedgehog^.Effects[hePoisoned] <> 0) and (Gear^.Hedgehog^.Effects[heFrozen] = 0) then
                 begin
-                inc(tmp, ModifyDamage(Gear^.Hedgehog^.Effects[hePoisoned], Gear));
+                inc(tmp, ModifyDamage(Gear^.Hedgehog^.Effects[hePoisoned], Gear) + (Gear^.Hedgehog^.Gear^.Health div 10));
                 if (GameFlags and gfResetHealth) <> 0 then
                     dec(Gear^.Hedgehog^.InitialHealth);
                 end;
