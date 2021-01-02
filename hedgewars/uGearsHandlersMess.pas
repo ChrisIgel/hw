@@ -641,7 +641,7 @@ begin
                     end
                     else
                         begin
-                        hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 200);
+                        hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 2);
                         if hogs.size > 0 then
                             begin
                             for j:= 0 to hogs.size - 1 do
