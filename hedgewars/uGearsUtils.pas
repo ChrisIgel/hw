@@ -52,6 +52,7 @@ procedure CheckCollisionWithLand(Gear: PGear); inline;
 
 procedure AmmoShove(Ammo: PGear; Damage, Power: LongInt);
 procedure AmmoShoveCache(Ammo: PGear; Damage, Power: LongInt);
+function CountGears(Kind: TGearType): Longword;
 procedure AmmoShoveLine(Ammo: PGear; Damage, Power: LongInt; oX, oY, tX, tY: hwFloat);
 function  GearsNear(X, Y: hwFloat; Kind: TGearType; r: LongInt): PGearArrayS;
 function  GearsNear(X, Y: hwFloat; r: LongInt): PGearArrayS;
