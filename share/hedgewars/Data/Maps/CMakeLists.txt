@@ -37,6 +37,7 @@ foreach(dir
     Hedgewars
     Hogville
     Hydrant
+    Icecold
     Islands
     Knockball
     Lonely_Island
@@ -45,6 +46,7 @@ foreach(dir
     PirateFlag
     Plane
     portal
+    Pyramidshoppa
     Ropes
     Ruler
     SB_Bones
