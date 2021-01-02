@@ -20,8 +20,10 @@ foreach(dir
     Custom_Doomwars
     Custom_Druk
     Custom_Europa
+    Custom_Falklands
     Custom_Karibik
     Custom_Megatrichter
+    Custom_Mosambik
     Custom_RopesVerschnitt
     Custom_Senegal
     Custom_Tetris
