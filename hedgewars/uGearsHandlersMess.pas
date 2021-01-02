@@ -6064,7 +6064,7 @@ begin
 
         rx := rndSign(getRandomf * _0_1);
         ry := rndSign(getRandomf * _0_1);
-        speed := (_3 / Gear^.Tag);
+        speed := (_8 / Gear^.Tag);
 
         land:= AddGear(gx, gy, gtFlake, gstTmpFlag,
                 SignAs(AngleSin(HHGear^.Angle) * speed, HHGear^.dX) + rx,
@@ -6084,7 +6084,7 @@ begin
         end
     else
         begin
-        i:= Gear^.Health div 10;
+        i:= Gear^.Health div 20;
         if (not cOnlyStats) and (i <> Gear^.Damage) and ((GameTicks and $3F) = 0) then
             begin
             Gear^.Damage:= i;

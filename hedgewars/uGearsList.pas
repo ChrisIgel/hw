@@ -420,7 +420,7 @@ case Kind of
                 with Gear^ do
                     begin
                     Pos:= 0;
-                    Radius:= 1;
+                    Radius:= 2;
                     DirAngle:= random(360);
                     Sticky:= true;
                     if State and gstTmpFlag = 0 then
@@ -786,7 +786,7 @@ gtFlamethrower: begin
      gtLandGun: begin
                 gear^.Tag:= 10;
                 if gear^.Timer = 0 then gear^.Timer:= 10;
-                gear^.Health:= 1000;
+                gear^.Health:= 2000;
                 gear^.Damage:= 100;
                 end;
  gtPoisonCloud: begin
