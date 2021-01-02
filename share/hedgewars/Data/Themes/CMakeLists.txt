@@ -8,6 +8,7 @@ foreach(dir
     Cake
     Cave
     Castle
+    CastleUK
     Cheese
     Christmas
     City
