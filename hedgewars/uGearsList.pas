@@ -328,7 +328,7 @@ case Kind of
                 gear^.ImpactSound:= sndGrenadeImpact;
                 gear^.nImpactSounds:= 1;
                 gear^.AdvBounce:= 1;
-                gear^.BounceTimes:= 30;
+                gear^.BounceTimes:= 3000;
                 gear^.Radius:= 5;
                 gear^.Elasticity:= _0_8;
                 gear^.Friction:= _0_8;

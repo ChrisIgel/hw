@@ -577,8 +577,8 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepBomb(Gear: PGear);
 var
-    i, j, x, y, sign: LongInt;
-    dX, dY, gdX: hwFloat;
+    i, j, x, y: LongInt;
+    dX, dY, gdX, pow: hwFloat;
     vg: PVisualGear;
     hogs: PGearArrayS;
 begin
@@ -618,26 +618,23 @@ begin
             gtGrenade:
                 begin
                 Gear^.RenderTimer := false;
-                if Gear^.BounceTimes > 0 then
+                if Gear^.BounceTimes > 1 then
                     begin
-                    if (GameTicks mod 75) = 0 then
+                    dec(Gear^.BounceTimes);
+                    hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 3);
+                    if hogs.size > 0 then
                         begin
-                        dec(Gear^.BounceTimes);
-                        if Gear^.BounceTimes mod 2 = 0 then sign := 1 else sign := -1;
-                        hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 3);
-                        if hogs.size > 0 then
-                            begin
-                            for j:= 0 to hogs.size - 1 do
-                                with hogs.ar^[j]^ do
+                        for j:= 0 to hogs.size - 1 do
+                            with hogs.ar^[j]^ do
+                                begin
+                                if hogs.ar^[j] <> CurrentHedgehog^.Gear then
                                     begin
-                                    if hogs.ar^[j] <> CurrentHedgehog^.Gear then
-                                        begin
-                                        Active:= true;
-                                        dX:= ((Gear^.X - X)*_0_01+rndSign(getRandomf)*_2)*_0_5*sign;
-                                        dY:= ((Gear^.Y - Y)*_0_01+rndSign(getRandomf)*_2)*_0_5*sign;
-                                        end;
+                                    Active:= true;
+                                    pow:= hwPow(Distance(Gear^.X - X, Gear^.Y - Y)/200, 2);
+                                    dX:= dX + ((Gear^.X - X)/300)*pow;
+                                    dY:= dY + ((Gear^.Y - Y)/300)*pow;
                                     end;
-                            end;
+                                end;
                         end;
                     end
                     else
