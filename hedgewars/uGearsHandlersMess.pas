@@ -3874,7 +3874,7 @@ begin
     angle := frickinAngle(Gear);
     for i:= 1 to 200 do
         begin
-        ballAngle := (angle - 40 + Random(80)) * pi / 180;
+        ballAngle := (angle - 40 + GetRandom(80)) * pi / 180;
         AddGear(hwRound(Gear^.X), hwRound(Gear^.Y), gtCluster, 0, Float2hwFloat(cos(ballAngle)) * (_0_5 + _0_3 * GetRandomf), Float2hwFloat(sin(ballAngle)) * (_0_5 + _0_3 * GetRandomf), 20);
         end;
 
@@ -6171,10 +6171,10 @@ begin
     AllInactive := false;
     HitGear := Gear^.LinkedGear;
 
-    for i := 1 to 4 do doMakeExplosion(hwRound(Gear^.X) - 2 + Random(4), hwRound(Gear^.Y) - 5 + 15*i, 15, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
+    for i := 1 to 4 do doMakeExplosion(hwRound(Gear^.X - _2 + GetRandomf), hwRound(Gear^.Y - _5 + (_15 * i)), 15, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
     for i := 1 to 10 do
         begin
-        for j := -i to i do doMakeExplosion(hwRound(Gear^.X) - 2 + Random(4) + (j * 10), hwRound(Gear^.Y) - 2 + Random(4) + 40 + (i * 10), 10, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
+        for j := -i to i do doMakeExplosion(hwRound(Gear^.X - _2 + GetRandomf + (_10 * j)), hwRound(Gear^.Y - _2 + GetRandomf + _40 + (_10 * i)), 10, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx or EXPLForceDraw);
         end;
 
     SetLittle(HitGear^.dY);
