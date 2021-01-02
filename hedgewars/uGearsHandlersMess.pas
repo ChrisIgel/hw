@@ -577,7 +577,7 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepBomb(Gear: PGear);
 var
-    i, j, x, y: LongInt;
+    i, j, x, y, sign: LongInt;
     dX, dY, gdX: hwFloat;
     vg: PVisualGear;
     hogs: PGearArrayS;
@@ -620,18 +620,22 @@ begin
                 Gear^.RenderTimer := false;
                 if Gear^.BounceTimes > 0 then
                     begin
-                    if (GameTicks mod 100) = 0 then
+                    if (GameTicks mod 75) = 0 then
                         begin
                         dec(Gear^.BounceTimes);
+                        if Gear^.BounceTimes mod 2 = 0 then sign := 1 else sign := -1;
                         hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 3);
                         if hogs.size > 0 then
                             begin
                             for j:= 0 to hogs.size - 1 do
                                 with hogs.ar^[j]^ do
                                     begin
-                                    dX:= ((Gear^.X - X)*_0_01+rndSign(getRandomf)*_2)*_0_2*(Gear^.BounceTimes div 10 + 3);
-                                    dY:= ((Gear^.Y - Y)*_0_01+rndSign(getRandomf)*_2)*_0_2*(Gear^.BounceTimes div 10 + 3);
-                                    Active:= true;
+                                    if hogs.ar^[j] <> CurrentHedgehog^.Gear then
+                                        begin
+                                        Active:= true;
+                                        dX:= ((Gear^.X - X)*_0_01+rndSign(getRandomf)*_2)*_0_5*sign;
+                                        dY:= ((Gear^.Y - Y)*_0_01+rndSign(getRandomf)*_2)*_0_5*sign;
+                                        end;
                                     end;
                             end;
                         end;
