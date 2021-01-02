@@ -337,7 +337,9 @@ var cInitVolume: LongInt;
             (FileName:       'dynamiteimpact.ogg'; Path: ptSounds; AltPath: ptNone),// sndDynamiteImpact
             (FileName:            'cakemusic.ogg'; Path: ptSounds; AltPath: ptNone),// sndCakeMusic
             (FileName:              'pressel.ogg'; Path: ptSounds; AltPath: ptNone),// sndPressel
-            (FileName:             'snotplop.ogg'; Path: ptSounds; AltPath: ptNone) // sndSnotPlop
+            (FileName:             'snotplop.ogg'; Path: ptSounds; AltPath: ptNone),// sndSnotPlop
+            (FileName:      'gravity_buzzing.ogg'; Path: ptSounds; AltPath: ptNone),// sndGravityBuzzing
+            (FileName:        'gravity_boost.ogg'; Path: ptSounds; AltPath: ptNone) // sndGravityBoost
             );
 
 

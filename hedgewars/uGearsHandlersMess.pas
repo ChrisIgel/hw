@@ -618,6 +618,8 @@ begin
             gtGrenade:
                 begin
                 Gear^.RenderTimer := false;
+                if Gear^.BounceTimes = 3000 then
+                    PlaySound(sndGravityBuzzing);
                 if Gear^.BounceTimes > 1 then
                     begin
                     dec(Gear^.BounceTimes);
@@ -630,16 +632,31 @@ begin
                                 if hogs.ar^[j] <> CurrentHedgehog^.Gear then
                                     begin
                                     Active:= true;
-                                    pow:= hwPow(Distance(Gear^.X - X, Gear^.Y - Y)/200, 2);
-                                    dX:= dX + ((Gear^.X - X)/300)*pow;
-                                    dY:= dY + ((Gear^.Y - Y)/300)*pow;
+                                    pow:= hwPow(Distance(Gear^.X - X, Gear^.Y - Y), 3)/2500*(3001-Gear^.BounceTimes)/1500;
+                                    dX:= dX + ((Gear^.X - X)/700)*pow;
+                                    dY:= dY + ((Gear^.Y - Y)/700)*pow;
                                     end;
                                 end;
                         end;
                     end
                     else
                         begin
-                        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Gear^.Boom, Gear^.Hedgehog, EXPLAutoSound);
+                        hogs := GearsNear(Gear^.X, Gear^.Y, gtHedgehog, Gear^.Boom * 200);
+                        if hogs.size > 0 then
+                            begin
+                            for j:= 0 to hogs.size - 1 do
+                                with hogs.ar^[j]^ do
+                                    begin
+                                    if hogs.ar^[j] <> CurrentHedgehog^.Gear then
+                                        begin
+                                            Active:= true;
+                                            dX:= dX + ((X - Gear^.X)/10);
+                                            dY:= dY + ((Y - Gear^.Y)/10);
+                                        end;
+                                    end;
+                            end;
+                        StopSound(sndGravityBuzzing);
+                        PlaySound(sndGravityBoost);
                         DeleteGear(Gear);
                         exit;
                         end;
