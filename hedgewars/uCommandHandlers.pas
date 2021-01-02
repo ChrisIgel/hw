@@ -386,36 +386,25 @@ begin
     s:= s; // avoid compiler hint
 
     if checkFails(AllInactive, '/nextturn called when not all gears are inactive', true) then exit;
-    AddFileLog('chNextTurn 1');
+
     CheckSum:= CheckSum xor GameTicks;
     gi := GearsList;
-    AddFileLog('chNextTurn 2');
     while gi <> nil do
         begin
-        AddFileLog('chNextTurn 3');
         with gi^ do CheckSum:= CheckSum xor X.round xor X.frac xor dX.round xor dX.frac xor Y.round xor Y.frac xor dY.round xor dY.frac;
-        AddFileLog('chNextTurn 4');
         AddRandomness(CheckSum);
-        AddFileLog('chNextTurn 5');
         gi := gi^.NextGear
         end;
 
-    AddFileLog('chNextTurn 6');
     if not isExternalSource then
         begin
         s[0]:= #5;
         s[1]:= 'N';
-        AddFileLog('chNextTurn 7');
         SDLNet_Write32(CheckSum, @s[2]);
-        AddFileLog('chNextTurn 8');
-        SendIPC(s);
-        AddFileLog('chNextTurn 9');
+        SendIPC(s)
         end
     else
-        begin
-        AddFileLog('chNextTurn 10');
         checkFails(CurrentTeam^.hasGone or (CheckSum = lastTurnChecksum), 'Desync detected', true);
-        end;
 
     AddFileLog('Next turn: time '+inttostr(GameTicks));
 end;
