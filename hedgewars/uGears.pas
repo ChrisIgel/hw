@@ -511,14 +511,19 @@ case step of
                 and (MultiShootAttacks > 0) then
                     OnUsedAmmo(CurrentHedgehog^);
 
+                AddFileLog('Pre EndTurnCleanup');
                 EndTurnCleanup;
 
                 FreeActionsList; // could send -left, -right and similar commands, so should be called before /nextturn
 
+                AddFileLog('Pre ParseCommand nextturn');
                 ParseCommand('/nextturn', true);
+                AddFileLog('Pre SwitchHedgehog');
                 SwitchHedgehog;
 
+                AddFileLog('Pre AfterSwitchHedgehog');
                 AfterSwitchHedgehog;
+                AddFileLog('Post AfterSwitchHedgehog');
                 bBetweenTurns:= false;
                 NewTurnTick:= GameTicks + 1
                 end;
