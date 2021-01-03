@@ -2397,7 +2397,7 @@ begin
             begin
             if ((GameTicks and $1F) = 0) then
 // FIXME - values taken from mine.  use a gear val and set both to same
-               if CheckGearNear(Gear, gtHedgehog, 46, 32) <> nil then
+               if CheckGearNear(Gear, gtHedgehog, 64, 64) <> nil then
                     Gear^.State := Gear^.State or gstAttacking
             end
         else if (Gear^.State and gstFrozen) = 0 then // gstAttacking <> 0
