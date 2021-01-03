@@ -3694,10 +3694,10 @@ begin
         gdX:= gdX*_0_2;
         gdY:= gdY*_0_2;
 
-        for i:= 0 to 14 do
+        for i:= 0 to 19 do
             begin
-            dX := gdX + rndSign(GetRandomf) * _0_07;
-            dY := gdY + rndSign(GetRandomf) * _0_07;
+            dX := gdX + rndSign(GetRandomf) * _0_2;
+            dY := gdY + rndSign(GetRandomf) * _0_2;
             AddGear(hwRound(Gear^.X), hwRound(Gear^.Y), gtCluster, 0, dX, dY, 40);
             end;
 
