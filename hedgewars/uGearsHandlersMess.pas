@@ -5971,18 +5971,18 @@ begin
         dec(Gear^.Health);
         if (Gear^.Health mod 3) = 0 then
             begin
-            rx := rndSign(getRandomf * _0_6);
-            ry := rndSign(getRandomf * _0_6);
+            rx := rndSign(getRandomf * _0_8);
+            ry := rndSign(getRandomf * _0_8);
             speed := _5 * (_10 / Gear^.Tag);
 
-            flame:= AddGear(gx, gy, gtFlame, gstTmpFlag,
+            flame:= AddGear(gx, gy, gtFlame, 0,
                     SignAs(AngleSin(HHGear^.Angle) * speed, HHGear^.dX) + rx,
                     AngleCos(HHGear^.Angle) * ( - speed) + ry, 0);
             flame^.CollisionMask:= lfNotCurHogCrate;
 
-            if (Gear^.Health mod 30) = 0 then
+            if (Gear^.Health mod 15) = 0 then
                 begin
-                flame:= AddGear(gx, gy, gtFlame, 0,
+                flame:= AddGear(gx, gy, gtFlame, gstTmpFlag,
                         SignAs(AngleSin(HHGear^.Angle) * speed, HHGear^.dX) + rx,
                         AngleCos(HHGear^.Angle) * ( - speed) + ry, 0);
                 flame^.CollisionMask:= lfNotCurHogCrate;
