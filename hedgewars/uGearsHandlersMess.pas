@@ -792,9 +792,9 @@ begin
                     State:= ord(sprEgg)
                     end;
             end;
-        for i:= 0 to 24 do
+        for i:= 0 to 29 do
             begin
-            dX := AngleCos(i * 2) * ((_0_15*(i div 5))) * (GetRandomf + _1);
+            dX := AngleCos(i * 2) * ((_0_15*(i div 2))) * (GetRandomf + _0_8);
             dY := AngleSin(i * 8) * _0_5 * (GetRandomf + _1);
             AddGear(gX, gY, gtFlame, gstTmpFlag, dX, dY, 0);
             AddGear(gX, gY, gtFlame, gstTmpFlag, dX,-dY, 0);
@@ -2873,39 +2873,28 @@ begin
                 end;
             end;
 
-        if (Gear^.dX.QWordValue > _2.QWordValue)
-            or (Gear^.dY.QWordValue > _2.QWordValue)
-        then
-        begin
-            // norm speed vector to length of 2 for fire particles to keep flying in the same direction
-            f:= _1_9 / Distance(Gear^.dX, Gear^.dY);
-            Gear^.dX:= Gear^.dX * f;
-            Gear^.dY:= Gear^.dY * f;
-        end
-        else begin
-            // Gravity and wind
-            if Gear^.dX.QWordValue > _0_01.QWordValue then
-                    Gear^.dX := Gear^.dX * _0_995;
+        // Gravity and wind
+        if Gear^.dX.QWordValue > _0_01.QWordValue then
+                Gear^.dX := Gear^.dX * _0_995;
 
-            Gear^.dY := Gear^.dY + cGravity;
+        Gear^.dY := Gear^.dY + cGravity;
 
-            if Gear^.dY.QWordValue > _0_2.QWordValue then
-                Gear^.dY := Gear^.dY * _0_995;
+        if Gear^.dY.QWordValue > _0_2.QWordValue then
+            Gear^.dY := Gear^.dY * _0_995;
 
-            // Apply speed changes
+        // Apply speed changes
 
-            tdX:= Gear^.dX + cWindSpeed * 640;
-            // Don't apply wind speed if moving against bounce world edge
-            if (WorldEdge = weBounce) and
-                (((hwRound(Gear^.X + tdX) - Gear^.Radius < leftX) and (hwSign(tdX) = -1)) or
-                ((hwRound(Gear^.X + tdX) + Gear^.Radius > rightX) and (hwSign(tdX) = 1))) then
-                    Gear^.X := Gear^.X + Gear^.dX
-            else
-                // Apply dX and wind speed
-                Gear^.X := Gear^.X + tdX * 2;
+        tdX:= Gear^.dX + cWindSpeed * 640;
+        // Don't apply wind speed if moving against bounce world edge
+        if (WorldEdge = weBounce) and
+            (((hwRound(Gear^.X + tdX) - Gear^.Radius < leftX) and (hwSign(tdX) = -1)) or
+            ((hwRound(Gear^.X + tdX) + Gear^.Radius > rightX) and (hwSign(tdX) = 1))) then
+                Gear^.X := Gear^.X + Gear^.dX
+        else
+            // Apply dX and wind speed
+            Gear^.X := Gear^.X + tdX * 2;
 
-            Gear^.Y := Gear^.Y + Gear^.dY * 2;
-        end;
+        Gear^.Y := Gear^.Y + Gear^.dY * 2;
 
         gX := hwRound(Gear^.X);
         gY := hwRound(Gear^.Y);
@@ -2949,7 +2938,7 @@ begin
             Gear^.dY.QWordValue:= 429496730;
             Gear^.dX.isNegative:= getrandom(2)<>1;
             Gear^.dY.isNegative:= true;
-            AmmoShove(Gear, Gear^.Boom * 4, 125);
+            AmmoShove(Gear, Gear^.Boom * 3, 125);
             Gear^.dX:= tdX;
             Gear^.dY:= tdY;
             Gear^.Radius := 1
@@ -2968,22 +2957,18 @@ begin
             if not sticky then
                 begin
                 // Deal damage
-                if ((GameTicks and $1) = 0) then
-                    begin
-                    Gear^.Radius := 7;
-                    tdX:= Gear^.dX;
-                    tdY:= Gear^.dY;
-                    Gear^.dX.QWordValue:= 214748365;
-                    Gear^.dY.QWordValue:= 429496730;
-                    Gear^.dX.isNegative:= getrandom(2)<>1;
-                    Gear^.dY.isNegative:= true;
-                    AmmoShove(Gear, Gear^.Boom * 3, 100);
-                    Gear^.dX:= tdX;
-                    Gear^.dY:= tdY;
-                    Gear^.Radius := 1;
-                    end
-                else if ((GameTicks and $3) = 3) then
-                    doMakeExplosion(gX, gY, Gear^.Boom * 4, Gear^.Hedgehog, 0);
+                Gear^.Radius := 7;
+                tdX:= Gear^.dX;
+                tdY:= Gear^.dY;
+                Gear^.dX.QWordValue:= 214748365;
+                Gear^.dY.QWordValue:= 429496730;
+                Gear^.dX.isNegative:= getrandom(2)<>1;
+                Gear^.dY.isNegative:= true;
+                AmmoShove(Gear, Gear^.Boom * 3, 100);
+                Gear^.dX:= tdX;
+                Gear^.dY:= tdY;
+                Gear^.Radius := 1;
+                doMakeExplosion(gX, gY, Gear^.Boom * 2, Gear^.Hedgehog, 0);
 
                 if ((GameTicks and $7) = 0) and (Random(2) = 0) then
                     for i:= Random(2) downto 0 do
@@ -3003,6 +2988,8 @@ begin
                 if ((GameTicks and $7FF) = 0) and ((GameFlags and gfSolidLand) = 0) then
                     begin
                     doMakeExplosion(gX, gY, Gear^.Boom, Gear^.Hedgehog, EXPLNoDamage or EXPLDoNotTouchAny or EXPLNoGfx);
+                    if Gear^.Health > 0 then
+                        dec(Gear^.Health);
 
                     for i:= Random(3) downto 0 do
                         AddVisualGear(gX - 3 + Random(6), gY - 2, vgtSmoke);
@@ -5969,18 +5956,18 @@ begin
     if Gear^.Timer = 0 then
         begin
         dec(Gear^.Health);
-        if (Gear^.Health mod 3) = 0 then
+        if (Gear^.Health mod 4) = 0 then
             begin
-            rx := rndSign(getRandomf * _0_8);
-            ry := rndSign(getRandomf * _0_8);
-            speed := _5 * (_10 / Gear^.Tag);
+            rx := rndSign(getRandomf);
+            ry := rndSign(getRandomf);
+            speed := _4 * (_10 / Gear^.Tag);
 
             flame:= AddGear(gx, gy, gtFlame, 0,
                     SignAs(AngleSin(HHGear^.Angle) * speed, HHGear^.dX) + rx,
                     AngleCos(HHGear^.Angle) * ( - speed) + ry, 0);
             flame^.CollisionMask:= lfNotCurHogCrate;
 
-            if (Gear^.Health mod 15) = 0 then
+            if (Gear^.Health mod 12) = 0 then
                 begin
                 flame:= AddGear(gx, gy, gtFlame, gstTmpFlag,
                         SignAs(AngleSin(HHGear^.Angle) * speed, HHGear^.dX) + rx,
