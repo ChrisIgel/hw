@@ -612,6 +612,9 @@ begin
             vg^.Tint:= $FFC0C000;
         end;
 
+    if (Gear^.State and gstDrowning) <> 0 then
+        StopSoundChan(Gear^.SoundChannel);
+
     if Gear^.Timer = 0 then
         begin
         case Gear^.Kind of
@@ -619,7 +622,7 @@ begin
                 begin
                 Gear^.RenderTimer := false;
                 if Gear^.BounceTimes = 3000 then
-                    PlaySound(sndGravityBuzzing);
+                    Gear^.SoundChannel := LoopSound(sndGravityBuzzing);
                 if Gear^.BounceTimes > 1 then
                     begin
                     dec(Gear^.BounceTimes);
@@ -655,7 +658,7 @@ begin
                                         end;
                                     end;
                             end;
-                        StopSound(sndGravityBuzzing);
+                        StopSoundChan(Gear^.SoundChannel);
                         PlaySound(sndGravityBoost);
                         DeleteGear(Gear);
                         exit;
