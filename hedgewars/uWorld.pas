@@ -999,7 +999,7 @@ end;
 
 
 procedure RenderTeamsHealth;
-var t, i, h, v, smallScreenOffset, TeamHealthBarWidth : LongInt;
+var t, i, h, v, smallScreenOffset, TeamHealthBarWidth, MaxCurrentHealthOfTeam : LongInt;
     r: TSDL_Rect;
     highlight: boolean;
     hasVisibleHog: boolean;
@@ -1014,6 +1014,13 @@ if VisibleTeamsCount * 20 > Longword(cScreenHeight) div 7 then  // take up less 
     end
 else smallScreenOffset:= 0;
 v:= 0; // for updating VisibleTeamsCount
+
+MaxCurrentHealthOfTeam := 0;
+for t:= 0 to Pred(TeamsCount) do
+    with TeamsArray[t]^ do
+        if TeamHealth > MaxCurrentHealthOfTeam then
+        MaxCurrentHealthOfTeam:= TeamHealth;
+
 for t:= 0 to Pred(TeamsCount) do
     with TeamsArray[t]^ do
       begin
@@ -1045,7 +1052,7 @@ for t:= 0 to Pred(TeamsCount) do
         // draw flag
         DrawTexture(-14, cScreenHeight + DrawHealthY + smallScreenOffset, FlagTex);
 
-        TeamHealthBarWidth:= cTeamHealthWidth * TeamHealthBarHealth div MaxTeamHealth;
+        TeamHealthBarWidth:= cTeamHealthWidth * TeamHealthBarHealth div MaxCurrentHealthOfTeam;
 
         // draw team health bar
         r.x:= 0;
