@@ -1004,7 +1004,7 @@ var t, i, h, v, smallScreenOffset, TeamHealthBarWidth, MaxCurrentHealthOfTeam : 
     highlight: boolean;
     hasVisibleHog: boolean;
     hedgehogCount: LongInt;
-    htex, hedgehogCountTex, teamHealthTex: PTexture;
+    htex: PTexture;
 begin
 if VisibleTeamsCount * 20 > Longword(cScreenHeight) div 7 then  // take up less screen on small displays
     begin
@@ -1072,12 +1072,14 @@ for t:= 0 to Pred(TeamsCount) do
             if (Hedgehogs[i].Gear <> nil) or (Hedgehogs[i].GearHidden <> nil) then hedgehogCount := hedgehogCount + 1;
 
         // Draw team hedgehog count
-        hedgehogCountTex := RenderStringTex(ansistring(IntToStr(hedgehogCount)), Clan^.Color, fnt16);
-        DrawTexture(TeamHealthBarWidth + 20, cScreenHeight + DrawHealthY + smallScreenOffset, hedgehogCountTex);
+        FreeAndNilTexture(HedgehogCountTex);
+        HedgehogCountTex := RenderStringTex(ansistring(IntToStr(hedgehogCount)), Clan^.Color, fnt16);
+        DrawTexture(TeamHealthBarWidth + 20, cScreenHeight + DrawHealthY + smallScreenOffset, HedgehogCountTex);
 
         // Draw team health
-        teamHealthTex := RenderStringTex(ansistring(IntToStr(TeamHealth) + ' HP'), Clan^.Color, fnt16);
-        DrawTexture(TeamHealthBarWidth + 20 + hedgehogCountTex^.w + 2, cScreenHeight + DrawHealthY + smallScreenOffset, teamHealthTex);
+        FreeAndNilTexture(TeamHealthTex);
+        TeamHealthTex := RenderStringTex(ansistring(IntToStr(TeamHealth) + ' HP'), Clan^.Color, fnt16);
+        DrawTexture(TeamHealthBarWidth + 20 + hedgehogCountTex^.w + 2, cScreenHeight + DrawHealthY + smallScreenOffset, TeamHealthTex);
 
         // draw hedgehog health separators in team health bar
         h:= 0;

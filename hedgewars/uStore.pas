@@ -620,6 +620,8 @@ for i:= Low(CountTexz) to High(CountTexz) do
             FreeAndNilTexture(TeamsArray[t]^.GraveTex);
             FreeAndNilTexture(TeamsArray[t]^.AIKillsTex);
             FreeAndNilTexture(TeamsArray[t]^.FlagTex);
+            FreeAndNilTexture(TeamsArray[t]^.TeamHealthTex);
+            FreeAndNilTexture(TeamsArray[t]^.HedgehogCountTex);
 
             for i:= 0 to cMaxHHIndex do
                 begin

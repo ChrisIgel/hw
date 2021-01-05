@@ -445,6 +445,8 @@ type
             GraveTex,
             AIKillsTex,
             LuaTeamValueTex,
+            TeamHealthTex,
+            HedgehogCountTex,
             FlagTex: PTexture;
             Flag: shortstring;
             GraveName: shortstring;

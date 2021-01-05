@@ -1134,6 +1134,8 @@ if TeamsCount > 0 then
             FreeAndNilTexture(GraveTex);
             FreeAndNilTexture(AIKillsTex);
             FreeAndNilTexture(LuaTeamValueTex);
+            FreeAndNilTexture(TeamHealthTex);
+            FreeAndNilTexture(HedgehogCountTex);
             FreeAndNilTexture(FlagTex);
             end;
 
