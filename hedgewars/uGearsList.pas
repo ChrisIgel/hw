@@ -280,7 +280,7 @@ case Kind of
         gtGrenade: Gear^.Boom := 100;
           gtShell: Gear^.Boom := 50;
             gtBee: Gear^.Boom := 100;
-    gtShotgunShot: Gear^.Boom := 25;
+    gtShotgunShot: Gear^.Boom := 60;
      gtPickHammer: Gear^.Boom := 12;
 //           gtRope: Gear^.Boom := 2; could be funny to have rope attaching to hog deal small amount of dmg?
      gtDEagleShot: Gear^.Boom := 60;

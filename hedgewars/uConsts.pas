@@ -212,7 +212,7 @@ const
     // some gear constants
     cBarrelHealth = 60;  // initial barrel health
     cSentryHealth = 60;  // initial sentry health
-    cShotgunRadius = 22; // radius of land a shotgun shot destroys
+    cShotgunRadius = 57; // radius of land a shotgun shot destroys
     cBlowTorchC    = 6;  // blow torch gear radius component (added to cHHRadius to get the full radius)
     cakeDmg =   50;      // default cake damage
 

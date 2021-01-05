@@ -1283,7 +1283,7 @@ while t <> nil do
                     if r-hwRound(dx+dy) > 0 then
                         begin
                         dist:= hwRound(Distance(dx, dy));
-                        dmg:= ModifyDamage(min(r - dist, Gear^.Boom), t);
+                        dmg:= ModifyDamage(min(r - dist, Gear^.Boom), t) * 2;
                         end;
                     if dmg > 0 then
                         begin
