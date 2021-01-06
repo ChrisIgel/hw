@@ -4453,10 +4453,12 @@ var
     HHGear, ball: PGear;
     rx, ry: hwFloat;
     gX, gY: LongInt;
+    CurWeapon: PAmmo;
 begin
     AllInactive := false;
     dec(Gear^.Timer);
     HHGear := Gear^.Hedgehog^.Gear;
+    CurWeapon := GetCurAmmoEntry(CurrentHedgehog^);
     if HHGear = nil then
         begin
         DeleteGear(gear);
@@ -4472,6 +4474,13 @@ begin
 
         ball:= AddGear(gx, gy, gtBall, 0, SignAs(AngleSin(HHGear^.Angle) * _1, HHGear^.dX) + rx, AngleCos(HHGear^.Angle) * ( - _1) + ry, 0);
         ball^.CollisionMask:= lfNotCurHogCrate;
+
+        if CurWeapon^.Bounciness = 2000 then
+            ball^.Elasticity := ball^.Elasticity * int2hwFloat(1300) / _1000
+        else if CurWeapon^.Bounciness = 4000 then
+            ball^.Elasticity := ball^.Elasticity * int2hwFloat(1500) / _1000
+        else 
+            ball^.Elasticity := ball^.Elasticity * int2hwFloat(CurWeapon^.Bounciness) / _1000;
 
         if (Gear^.Timer mod 100) = 0 then PlaySound(sndGun);
         end;

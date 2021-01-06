@@ -1748,6 +1748,7 @@ const
             NumberInCase: 1;
             Ammo: (Propz: ammoprop_ForwMsgs or
                           ammoprop_NeedUpDown or
+                          ammoprop_SetBounce or
                           ammoprop_DontHold;
                 Count: AMMO_INFINITE;
                 NumPerTurn: 0;
