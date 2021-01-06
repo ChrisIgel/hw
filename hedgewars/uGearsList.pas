@@ -275,7 +275,7 @@ case Kind of
        gtHedgehog: Gear^.Boom := 50;
            gtMine: Gear^.Boom := 50;
            gtCase: Gear^.Boom := 25;
-        gtAirMine: Gear^.Boom := 30;
+        gtAirMine: Gear^.Boom := 50;
      gtExplosives: Gear^.Boom := 75;
         gtGrenade: Gear^.Boom := 100;
           gtShell: Gear^.Boom := 50;
