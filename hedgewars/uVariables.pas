@@ -2334,7 +2334,7 @@ const
             (NameId: sidSnowball;
             NameTex: nil;
             Probability: 0;
-            NumberInCase: 1;
+            NumberInCase: 3;
             Ammo: (Propz: ammoprop_Power or
                           ammoprop_AltUse or
                           ammoprop_NeedUpDown or

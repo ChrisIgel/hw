@@ -858,6 +858,7 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure doStepSnowball(Gear: PGear);
 var kick, i: LongInt;
+    gears: PGearArrayS;
     particle: PVisualGear;
     gdX, gdY: hwFloat;
 begin
@@ -870,11 +871,25 @@ begin
     CalcRotationDirAngle(Gear);
     if (Gear^.State and gstCollision) <> 0 then
         begin
+        gears := GearsNear(Gear^.X, Gear^.Y, gtMine, 12 * Gear^.Radius);
+        if gears.size > 0 then
+            for i:= 0 to gears.size - 1 do
+                if (gears.ar^[i] <> nil) then
+                    begin
+                    particle := AddVisualGear(hwRound(gears.ar^[i]^.X) - 4  + Random(8), hwRound(gears.ar^[i]^.Y) - 4 - Random(4), vgtSmoke);
+                    if particle <> nil then
+                        particle^.Scale:= 0.8;
+                    PlaySound(sndVaporize);
+                    gears.ar^[i]^.Health := 0;
+                    gears.ar^[i]^.Damage := 0;
+                    gears.ar^[i]^.State := gears.ar^[i]^.State and (not gstAttacking)
+                    end;
+
         kick:= hwRound((hwAbs(gdX)+hwAbs(gdY)) * Gear^.Boom / 10000);
         Gear^.dX:= gdX;
         Gear^.dY:= gdY;
         AmmoShove(Gear, 0, kick);
-        for i:= 15 + kick div 10 downto 0 do
+        for i:= 15 + kick div 50 downto 0 do
             begin
             particle := AddVisualGear(hwRound(Gear^.X) + Random(25), hwRound(Gear^.Y) + Random(25), vgtDust);
             if particle <> nil then

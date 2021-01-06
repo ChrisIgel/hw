@@ -311,7 +311,7 @@ gtSniperRifleShot: Gear^.Boom := 500000;
         gtGasBomb: Gear^.Boom := 20;
     gtSineGunShot: Gear^.Boom := 200;
           gtSMine: Gear^.Boom := 80;
-    gtSnowball: Gear^.Boom := 200000; // arbitrary scaling for the shove
+    gtSnowball: Gear^.Boom := 500000; // arbitrary scaling for the shove
          gtHammer: if cDamageModifier > _1 then // scale it based on cDamageModifier?
                          Gear^.Boom := 2
                     else Gear^.Boom := 3;
