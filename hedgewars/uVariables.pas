@@ -1433,8 +1433,8 @@ const
                 Bounciness: defaultBounciness);
             Slot: 6;
             TimeAfterTurn: 3000;
-            minAngle: 804;
-            maxAngle: 1327;
+            minAngle: 455;
+            maxAngle: 1593;
             isDamaging: false;
             SkipTurns: 0;
             PosCount: 0;

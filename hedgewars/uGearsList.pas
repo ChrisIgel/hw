@@ -291,7 +291,7 @@ case Kind of
          gtShover: Gear^.Boom := 100;
       gtFirePunch: Gear^.Boom := 100;
         gtAirBomb: Gear^.Boom := 60;
-      gtBlowTorch: Gear^.Boom := 2;
+      gtBlowTorch: Gear^.Boom := 15;
          gtMortar: Gear^.Boom := 50;
            gtWhip: Gear^.Boom := 50;
        gtKamikaze: Gear^.Boom := 0; // explosion radius based on hedgehog health
@@ -643,7 +643,7 @@ case Kind of
                 end;
    gtBlowTorch: begin
                 gear^.Radius:= cHHRadius + cBlowTorchC;
-                if gear^.Timer = 0 then gear^.Timer:= 7500
+                if gear^.Timer = 0 then gear^.Timer:= 15000
                 end;
     gtSwitcher: begin
                 gear^.Z:= cCurrHHZ
