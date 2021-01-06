@@ -6364,7 +6364,7 @@ begin
         doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), 10, Gear^.Hedgehog, EXPLAutoSound);
         gX := hwRound(Gear^.X);
         gY := hwRound(Gear^.Y);
-        for i:= 0 to 3 do
+        for i:= 0 to 5 do
         begin
             dX := AngleCos(i * 2) * ((_0_1*(i div 5))) * (GetRandomf + _1);
             dY := AngleSin(i * 8) * _0_5 * (GetRandomf + _1);
@@ -6379,7 +6379,7 @@ begin
     if (Gear^.Timer = 0) then
         begin
         doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), 10, Gear^.Hedgehog, EXPLAutoSound);
-        for i:= -7 to 7 do
+        for i:= -10 to 10 do
            FollowGear := AddGear(hwRound(Gear^.X) + i, hwRound(Gear^.Y), gtFlame, 0, _0_001 * i, _0, 0);
         DeleteGear(Gear);
         exit
