@@ -3066,7 +3066,6 @@ begin
             AddGear(hwRound(HHGear^.X), hwRound(HHGear^.Y), gtFlame, 0, _1, _0, 0);
             AddGear(hwRound(HHGear^.X), hwRound(HHGear^.Y), gtFlame, 0, -_1, _0, 0);
             end;
-        HHGear^.State := HHGear^.State and (not gstNoDamage) and (not gstNotKickable);
         end;
 
     HHGear^.dY := HHGear^.dY + cGravity;
@@ -3074,6 +3073,7 @@ begin
     if not (HHGear^.dY.isNegative) or (Gear^.Timer = 0) then
         begin
         HHGear^.State := HHGear^.State or gstMoving;
+        HHGear^.State := HHGear^.State and (not gstNoDamage) and (not gstNotKickable);
         ClearHitOrder();
         ClearProximityCache();
         DeleteGear(Gear);
