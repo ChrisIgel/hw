@@ -658,6 +658,7 @@ begin
                                         end;
                                     end;
                             end;
+                        vg:= AddVisualGear(hwRound(Gear^.X), hwRound(Gear^.Y), vgtSmokeRing);
                         StopSoundChan(Gear^.SoundChannel);
                         PlaySound(sndGravityBoost);
                         DeleteGear(Gear);
