@@ -492,7 +492,7 @@ with Gear^,
                                  end;
                        amTardis: newGear:= AddGear(hwRound(X), hwRound(Y), gtTardis, 0, _0, _0, 0);
                        amIceGun: newGear:= AddGear(hwRound(X), hwRound(Y), gtIceGun, 0, _0, _0, 0);
-                      amPressel: newGear:= AddGear(hwRound(X), hwRound(Y), gtPressel, 0, xx*Power/cPowerDivisor, yy*Power/cPowerDivisor, 5000);
+                      amPressel: newGear:= AddGear(hwRound(X), hwRound(Y), gtPressel, 0, newDx * _0_7, newDy * _0_7, 2500);
             end;
             if altUse and (newGear <> nil) and
                ((CurAmmoGear = nil) or (CurAmmoGear^.AmmoType <> amJetpack) or (Gear^.Message and gmPrecise = 0)) then

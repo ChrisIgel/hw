@@ -2594,10 +2594,10 @@ const
             NameTex: nil;
             Probability: 100;
             NumberInCase: 1;
-            Ammo: (Propz: ammoprop_Power or ammoprop_AltUse;
+            Ammo: (Propz: ammoprop_Power or ammoprop_AltUse or ammoprop_NeedUpDown;
                 Count: 1;
                 NumPerTurn: 0;
-                Timer: 3000;
+                Timer: 2500;
                 Pos: 0;
                 AmmoType: amPressel;
                 AttackVoice: sndIncoming;

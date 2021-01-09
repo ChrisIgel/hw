@@ -7710,7 +7710,7 @@ begin
         CalcRotationDirAngle(Gear);
         end;
 
-    if (Gear^.State and gstFrozen) = 0 then
+    if (Gear^.State and gstMoving) = 0 then
         begin
         AllInactive := false;
         if Gear^.Timer = 0 then
