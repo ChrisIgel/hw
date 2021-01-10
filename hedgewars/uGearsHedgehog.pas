@@ -363,7 +363,7 @@ with Gear^,
                          amSkip: ParseCommand('/skip', true);
                          amRope: newGear:= AddGear(hwRound(lx), hwRound(ly), gtRope, 0, xx, yy, 0);
                          amMine: newGear:= AddGear(hwRound(lx) + hwSign(dX) * 7, hwRound(ly), gtMine, gstWait, SignAs(_0_02, dX), _0, 0);
-                        amSMine: newGear:= AddGear(hwRound(lx), hwRound(ly), gtSMine,    0, xx*Power/cPowerDivisor, yy*Power/cPowerDivisor, 0);
+                        amSMine: newGear:= AddGear(hwRound(lx), hwRound(ly), gtSMine,    0, newDx, newDy, 0);
                         amKnife: begin
                                  newGear:= AddGear(hwRound(lx), hwRound(ly), gtKnife,    0, newDx, newDy, 0);
                                  newGear^.State:= newGear^.State or gstMoving;
