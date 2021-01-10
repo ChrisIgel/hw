@@ -4929,7 +4929,7 @@ begin
         HHGear^.Message := HHGear^.Message and (not gmAttack);
         if Gear^.FlightTime > 0 then
             begin
-            for i:= 0 to 10 do AddGear(hwRound(Gear^.X) + getRandom(30), hwRound(Gear^.Y) + 32 + (2 * i * getRandom(2)), gtEgg, 0, Gear^.dX * _0_5, Gear^.dY, 0);
+            for i:= 0 to 10 do AddGear(hwRound(Gear^.X) - 15 + getRandom(30), hwRound(Gear^.Y) + 30 + getRandom(20), gtEgg, 0, Gear^.dX * _0_5, Gear^.dY, 0);
             PlaySound(sndBirdyLay);
             dec(Gear^.FlightTime)
             end;
