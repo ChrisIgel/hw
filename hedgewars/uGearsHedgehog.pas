@@ -956,7 +956,7 @@ with HHGear^.Hedgehog^ do
         da:= 2
     else da:= 1;
 
-if ((HHGear^.Message and gmPrecise = 0) or ((CurAmmoGear <> nil) and (CurAmmoGear^.AmmoType = amJetpack))) or (GameTicks mod 5 = 1) then
+if ((HHGear^.Message and gmPrecise = 0) or ((CurAmmoGear <> nil) and (CurAmmoGear^.AmmoType = amJetpack))) or (GameTicks mod 20 = 1) then
     if ((HHGear^.Message and gmUp) <> 0) and (HHGear^.Angle >= CurMinAngle + da) then
         dec(HHGear^.Angle, da)
     else
