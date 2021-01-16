@@ -1165,7 +1165,7 @@ begin
     else
         begin
         if (GameTicks mod 50) = 0 then
-            AddGear(gX, gY, gtCluster, 0, _0, _0, 20);
+            AddGear(gX, gY, gtCluster, 0, Gear^.dX * _0_4, Gear^.dY * _0_4, 20);
         if (Gear^.Timer and $F) = 0 then
             begin
 
