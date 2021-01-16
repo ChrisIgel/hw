@@ -1486,7 +1486,7 @@ begin
         if (Gear^.AmmoType = amDEagle) or (Gear^.AmmoType = amMinigun) then
             dmg:= Gear^.Boom
         else
-            dmg:= Gear^.Timer * Gear^.Boom div 100000;
+            dmg:= (Gear^.Timer div 7) * (Gear^.Timer div 7) * Gear^.Boom div 100000;
         if (Gear^.AmmoType = amMinigun) then
             power:= 10
         else
