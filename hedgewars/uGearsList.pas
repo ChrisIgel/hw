@@ -305,7 +305,7 @@ case Kind of
         gtRCPlane: Gear^.Boom := 80;
 // sniper rifle is distance linked, this Boom is just an arbitrary scaling factor applied to timer-based-damage
 // because, eh, why not..
-gtSniperRifleShot: Gear^.Boom := 600000;
+gtSniperRifleShot: Gear^.Boom := 6;
             gtEgg: Gear^.Boom := 20;
           gtPiano: Gear^.Boom := 80;
         gtGasBomb: Gear^.Boom := 20;
