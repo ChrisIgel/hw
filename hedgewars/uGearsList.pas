@@ -558,7 +558,7 @@ case Kind of
                 gear^.ImpactSound:= sndCaseImpact;
                 gear^.nImpactSounds:= 1;
                 gear^.Radius:= 16;
-                gear^.Elasticity:= _0_3;
+                gear^.Elasticity:= _0_02;
                 if gear^.Timer = 0 then gear^.Timer:= 500
                 end;
   gtExplosives: begin

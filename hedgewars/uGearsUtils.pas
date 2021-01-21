@@ -1714,7 +1714,7 @@ if (aTot+uTot) <> 0 then
 
 if t<h then
     begin
-    FollowGear:= AddGear(0, 0, gtCase, 0, _0, _0, 0);
+    FollowGear:= AddGear(0, 0, gtCase, 0, _0, _2, 0);
     FollowGear^.RenderHealth:= true;
     FollowGear^.Health:= cHealthCaseAmount;
     FollowGear^.Pos:= posCaseHealth;
@@ -1727,7 +1727,7 @@ else if (t<a+h) then
     t:= aTot;
     if (t > 0) then
         begin
-        FollowGear:= AddGear(0, 0, gtCase, 0, _0, _0, 0);
+        FollowGear:= AddGear(0, 0, gtCase, 0, _0, _2, 0);
         t:= GetRandom(t);
         i:= Low(TAmmoType);
         FollowGear^.Pos:= posCaseAmmo;
@@ -1740,7 +1740,7 @@ else
     t:= uTot;
     if (t > 0) then
         begin
-        FollowGear:= AddGear(0, 0, gtCase, 0, _0, _0, 0);
+        FollowGear:= AddGear(0, 0, gtCase, 0, _0, _2, 0);
         t:= GetRandom(t);
         i:= Low(TAmmoType);
         FollowGear^.Pos:= posCaseUtility;

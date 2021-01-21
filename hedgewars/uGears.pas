@@ -1243,7 +1243,7 @@ end;}
 function SpawnCustomCrateAt(x, y: LongInt; crate: TCrateType; content, cnt: Longword): PGear;
 var gear: PGear;
 begin
-    gear := AddGear(x, y, gtCase, 0, _0, _0, 0);
+    gear := AddGear(x, y, gtCase, 0, _0, _2, 0);
     if(FinishedTurnsTotal > -1) then
         FollowGear:= gear;
     cCaseFactor := 0;
@@ -1289,7 +1289,7 @@ end;
 function SpawnFakeCrateAt(x, y: LongInt; crate: TCrateType; explode: boolean; poison: boolean): PGear;
 var gear: PGear;
 begin
-    gear := AddGear(x, y, gtCase, 0, _0, _0, 0);
+    gear := AddGear(x, y, gtCase, 0, _0, _2, 0);
     if(FinishedTurnsTotal > -1) then
         FollowGear:= gear;
     cCaseFactor := 0;
