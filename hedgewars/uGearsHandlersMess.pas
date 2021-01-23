@@ -3146,6 +3146,7 @@ begin
             HHGear^.Hedgehog^.CurAmmoType:= amParachute;
         isCursorVisible := false;
         ApplyAmmoChanges(HHGear^.Hedgehog^);
+        StopSound(sndParachute);
         DeleteGear(Gear);
         exit
         end;
