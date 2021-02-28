@@ -775,7 +775,7 @@ case Kind of
                 end;
  gtSineGunShot: begin
                 gear^.Radius:= 5;
-                gear^.Health:= 12000;
+                gear^.Health:= 30000;
                 end;
 gtFlamethrower: begin
                 gear^.Tag:= 10;
