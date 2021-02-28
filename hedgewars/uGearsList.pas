@@ -703,7 +703,7 @@ case Kind of
                 gear^.Elasticity:= _0_8;
                 gear^.Friction:= _0_8;
                 if gear^.Timer = 0 then
-                    gear^.Timer:= 5000;
+                    gear^.Timer:= 10000;
                 // Tag for drill strike. if 1 then first impact occured already
                 gear^.Tag := 0;
                 // Pos for state. If 1, drill is drilling
