@@ -3807,7 +3807,7 @@ begin
 
     if (Gear^.Message and gmAttack) <> 0 then
         begin
-        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Min(50 + (HHGear^.Health div 30), 300), Gear^.Hedgehog, EXPLAutoSound);
+        doMakeExplosion(hwRound(Gear^.X), hwRound(Gear^.Y), Min(50 + (HHGear^.Health div 30), 400), Gear^.Hedgehog, EXPLAutoSound);
         if hasWishes then
             for i:= 0 to 31 do
                 begin
