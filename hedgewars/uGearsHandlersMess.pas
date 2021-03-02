@@ -4199,10 +4199,26 @@ begin
 
     gears := GearsNear(Gear^.X, Gear^.Y, Gear^.Radius);
     if gears.size > 0 then
-        begin
         for i:= 0 to gears.size - 1 do
             with gears.ar^[i]^ do
-                if (gears.ar^[i] <> CurrentHedgehog^.Gear) and (Hedgehog^.Effects[heFrozen] = 0)  then
+                begin
+                if (Kind = gtHedgehog) then
+                    begin
+                    if (gears.ar^[i] <> CurrentHedgehog^.Gear) and (Hedgehog^.Effects[heFrozen] = 0) then
+                        begin
+                        if (WorldEdge <> weWrap) or (not (hwAbs(Gear^.X - X) > int2hwFloat(Gear^.Radius))) then
+                            dX:= _50 * cGravity * (Gear^.X - X) / _5
+                        else if (not (hwAbs(Gear^.X + int2hwFloat(RightX-LeftX) - X) > int2hwFloat(Gear^.Radius))) then
+                            dX:= _50 * cGravity * ((Gear^.X + int2hwFloat(RightX-LeftX)) - X) / _5
+                        else
+                            dX:= _50 * cGravity * ((Gear^.X - int2hwFloat(RightX-LeftX)) - X) / _5;
+                        dY:= -_450 * cMaxWindSpeed * 10;
+                        Active:= true;
+                        end
+                    else if Hedgehog^.Effects[heFrozen] > 255 then
+                        Hedgehog^.Effects[heFrozen]:= 255
+                    end
+                else if (Kind = gtMine) or (Kind = gtAirMine) or (Kind = gtExplosives) then
                     begin
                     if (WorldEdge <> weWrap) or (not (hwAbs(Gear^.X - X) > int2hwFloat(Gear^.Radius))) then
                         dX:= _50 * cGravity * (Gear^.X - X) / _5
@@ -4212,10 +4228,9 @@ begin
                         dX:= _50 * cGravity * ((Gear^.X - int2hwFloat(RightX-LeftX)) - X) / _5;
                     dY:= -_450 * cMaxWindSpeed * 10;
                     Active:= true;
-                    end
-                else if Hedgehog^.Effects[heFrozen] > 255 then
-                    Hedgehog^.Effects[heFrozen]:= 255
-        end ;
+                    end;
+                end;
+
     AfterAttack;
     DeleteGear(Gear);
 end;
