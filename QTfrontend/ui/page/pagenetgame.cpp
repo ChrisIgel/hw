@@ -36,7 +36,7 @@ QLayout * PageNetGame::bodyLayoutDefinition()
 {
     QGridLayout * pageLayout = new QGridLayout();
     pageLayout->setSizeConstraint(QLayout::SetMinimumSize);
-    pageLayout->setColumnStretch(0, 1);
+    pageLayout->setColumnStretch(0, 2);
     pageLayout->setColumnStretch(1, 1);
     pageLayout->setRowStretch(0, 0);
     pageLayout->setRowStretch(1, 0);
@@ -96,7 +96,7 @@ QLayout * PageNetGame::bodyLayoutDefinition()
     pNetTeamsWidget = new TeamSelWidget(this);
     pNetTeamsWidget->setAcceptOuter(true);
     pNetTeamsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    pageLayout->addWidget(pNetTeamsWidget, 1, 1);
+    pageLayout->addWidget(pNetTeamsWidget, 1, 1, 2, 1);
 
     // Chat
 
@@ -105,7 +105,7 @@ QLayout * PageNetGame::bodyLayoutDefinition()
     chatWidget->setIgnoreListKick(true); // kick ignored players automatically
     chatWidget->setMinimumHeight(50);
     chatWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    pageLayout->addWidget(chatWidget, 2, 0, 1, 2);
+    pageLayout->addWidget(chatWidget, 2, 0, 1, 1);
 
     return pageLayout;
 }
